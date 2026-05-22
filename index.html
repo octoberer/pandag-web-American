@@ -3,6 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="preload"
+      as="image"
+      href="images/4.avif"
+      type="image/avif"
+      fetchpriority="high"
+    />
     <title>PANDAG | Intelligent Outdoor Equipment</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
@@ -44,6 +51,11 @@
           #0d0d18 50%,
           #141428 100%
         );
+      }
+      .hero-slide-bg picture {
+        display: block;
+        width: 100%;
+        height: 100%;
       }
       .hero-slide-bg img {
         width: 100%;
@@ -385,6 +397,11 @@
         position: relative;
         flex-shrink: 0;
       }
+      .product-img-wrap picture {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
       .product-img-wrap img {
         width: 100%;
         height: 100%;
@@ -556,6 +573,13 @@
         aspect-ratio: 4/3;
         background: var(--dark2);
       }
+      .scenario-card picture {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
       .scenario-photo {
         width: 100%;
         height: 100%;
@@ -710,7 +734,16 @@
         <!-- Slide 1: Wood Chipper -->
         <div class="hero-slide active">
           <div class="hero-slide-bg">
-            <img src="images/4.png" alt="High-Power Wood Chipper" />
+            <picture>
+              <source type="image/avif" srcset="images/4.avif" />
+              <source type="image/webp" srcset="images/4.webp" />
+              <img
+                src="images/4.jpg"
+                alt="High-Power Wood Chipper"
+                fetchpriority="high"
+                decoding="async"
+              />
+            </picture>
           </div>
           <div class="hero-overlay"></div>
           <div class="hero-slide-content">
@@ -739,7 +772,11 @@
         <!-- Slide 2: Robotic Mower -->
         <div class="hero-slide">
           <div class="hero-slide-bg">
-            <img src="images/2.png" alt="Intelligent Robotic Mowing" />
+            <picture>
+              <source type="image/avif" data-srcset="images/2.avif" />
+              <source type="image/webp" data-srcset="images/2.webp" />
+              <img data-src="images/2.jpg" alt="Intelligent Robotic Mowing" decoding="async" />
+            </picture>
           </div>
           <div class="hero-overlay"></div>
           <div class="hero-slide-content">
@@ -765,7 +802,11 @@
         <!-- Slide 3: Log Splitter -->
         <div class="hero-slide">
           <div class="hero-slide-bg">
-            <img src="images/3.jpg" alt="Hydraulic Log Splitter" />
+            <picture>
+              <source type="image/avif" data-srcset="images/3.avif" />
+              <source type="image/webp" data-srcset="images/3.webp" />
+              <img data-src="images/3.jpg" alt="Hydraulic Log Splitter" decoding="async" />
+            </picture>
           </div>
           <div class="hero-overlay"></div>
           <div class="hero-slide-content">
@@ -794,7 +835,11 @@
         <!-- Slide 4: Tracked Carrier -->
         <div class="hero-slide">
           <div class="hero-slide-bg">
-            <img src="images/1.png" alt="Full-Terrain Tracked Carrier" />
+            <picture>
+              <source type="image/avif" data-srcset="images/1.avif" />
+              <source type="image/webp" data-srcset="images/1.webp" />
+              <img data-src="images/1.jpg" alt="Full-Terrain Tracked Carrier" decoding="async" />
+            </picture>
           </div>
           <div class="hero-overlay"></div>
           <div class="hero-slide-content">
@@ -822,7 +867,11 @@
         <!-- Slide 5: Hedge Trimmer -->
         <div class="hero-slide">
           <div class="hero-slide-bg">
-            <img src="images/5.png" alt="Professional Hedge Trimmer" />
+            <picture>
+              <source type="image/avif" data-srcset="images/5.avif" />
+              <source type="image/webp" data-srcset="images/5.webp" />
+              <img data-src="images/5.jpg" alt="Professional Hedge Trimmer" decoding="async" />
+            </picture>
           </div>
           <div class="hero-overlay"></div>
           <div class="hero-slide-content">
@@ -1608,7 +1657,11 @@
           <div class="carousel-track" id="productTrack">
             <div class="product-card">
               <div class="product-img-wrap">
-                <img src="images/6.png" alt="Robotic Mower" />
+                <picture>
+                  <source type="image/avif" srcset="images/6.avif" />
+                  <source type="image/webp" srcset="images/6.webp" />
+                  <img src="images/6.jpg" alt="Robotic Mower" loading="lazy" decoding="async" />
+                </picture>
               </div>
               <div class="product-body">
                 <div class="product-num">01</div>
@@ -1642,7 +1695,11 @@
 
             <div class="product-card">
               <div class="product-img-wrap">
-                <img src="images/7.png" alt="Wood Chipper" />
+                <picture>
+                  <source type="image/avif" srcset="images/7.avif" />
+                  <source type="image/webp" srcset="images/7.webp" />
+                  <img src="images/7.jpg" alt="Wood Chipper" loading="lazy" decoding="async" />
+                </picture>
               </div>
               <div class="product-body">
                 <div class="product-num">02</div>
@@ -1676,7 +1733,11 @@
 
             <div class="product-card">
               <div class="product-img-wrap">
-                <img src="images/8.jpg" alt="Log Splitter" />
+                <picture>
+                  <source type="image/avif" srcset="images/8.avif" />
+                  <source type="image/webp" srcset="images/8.webp" />
+                  <img src="images/8.jpg" alt="Log Splitter" loading="lazy" decoding="async" />
+                </picture>
               </div>
               <div class="product-body">
                 <div class="product-num">03</div>
@@ -1710,7 +1771,11 @@
 
             <div class="product-card">
               <div class="product-img-wrap">
-                <img src="images/9.png" alt="Tracked Carrier" />
+                <picture>
+                  <source type="image/avif" srcset="images/9.avif" />
+                  <source type="image/webp" srcset="images/9.webp" />
+                  <img src="images/9.jpg" alt="Tracked Carrier" loading="lazy" decoding="async" />
+                </picture>
               </div>
               <div class="product-body">
                 <div class="product-num">04</div>
@@ -1744,7 +1809,11 @@
 
             <div class="product-card">
               <div class="product-img-wrap">
-                <img src="images/10.jpg" alt="Hedge Trimmer" />
+                <picture>
+                  <source type="image/avif" srcset="images/10.avif" />
+                  <source type="image/webp" srcset="images/10.webp" />
+                  <img src="images/10.jpg" alt="Hedge Trimmer" loading="lazy" decoding="async" />
+                </picture>
               </div>
               <div class="product-body">
                 <div class="product-num">05</div>
@@ -1819,54 +1888,84 @@
       </div>
       <div class="scenarios-grid">
         <div class="scenario-card fade-up">
-          <img class="scenario-photo" src="images/1.png" alt="Solar Farms" />
+          <picture>
+            <source type="image/avif" srcset="images/1.avif" />
+            <source type="image/webp" srcset="images/1.webp" />
+            <img class="scenario-photo" src="images/1.jpg" alt="Solar Farms" loading="lazy" decoding="async" />
+          </picture>
           <div class="scenario-overlay"></div>
           <div class="scenario-badge">Robotic Mower</div>
           <div class="scenario-label">Solar Farms</div>
           <div class="scenario-sub">Autonomous vegetation management</div>
         </div>
         <div class="scenario-card fade-up">
-          <img class="scenario-photo" src="images/2.png" alt="Steep Slopes" />
+          <picture>
+            <source type="image/avif" srcset="images/2.avif" />
+            <source type="image/webp" srcset="images/2.webp" />
+            <img class="scenario-photo" src="images/2.jpg" alt="Steep Slopes" loading="lazy" decoding="async" />
+          </picture>
           <div class="scenario-overlay"></div>
           <div class="scenario-badge">Robotic Mower</div>
           <div class="scenario-label">Steep Slopes</div>
           <div class="scenario-sub">Up to 35° at 70% grade</div>
         </div>
         <div class="scenario-card fade-up">
-          <img class="scenario-photo" src="images/3.jpg" alt="Golf Courses" />
+          <picture>
+            <source type="image/avif" srcset="images/3.avif" />
+            <source type="image/webp" srcset="images/3.webp" />
+            <img class="scenario-photo" src="images/3.jpg" alt="Golf Courses" loading="lazy" decoding="async" />
+          </picture>
           <div class="scenario-overlay"></div>
           <div class="scenario-badge">Robotic Mower</div>
           <div class="scenario-label">Golf Courses</div>
           <div class="scenario-sub">Precision turf management</div>
         </div>
         <div class="scenario-card fade-up">
-          <img
-            class="scenario-photo"
-            src="images/4.png"
-            alt="Agricultural Land"
-          />
+          <picture>
+            <source type="image/avif" srcset="images/4.avif" />
+            <source type="image/webp" srcset="images/4.webp" />
+            <img
+              class="scenario-photo"
+              src="images/4.jpg"
+              alt="Agricultural Land"
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
           <div class="scenario-overlay"></div>
           <div class="scenario-badge">Tracked Carrier · Hedge Trimmer</div>
           <div class="scenario-label">Agricultural Land</div>
           <div class="scenario-sub">Orchards, vineyards & pastures</div>
         </div>
         <div class="scenario-card fade-up">
-          <img
-            class="scenario-photo"
-            src="images/5.png"
-            alt="Forestry & Timber"
-          />
+          <picture>
+            <source type="image/avif" srcset="images/5.avif" />
+            <source type="image/webp" srcset="images/5.webp" />
+            <img
+              class="scenario-photo"
+              src="images/5.jpg"
+              alt="Forestry & Timber"
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
           <div class="scenario-overlay"></div>
           <div class="scenario-badge">Wood Chipper · Log Splitter</div>
           <div class="scenario-label">Forestry & Timber</div>
           <div class="scenario-sub">Chipping, splitting and processing</div>
         </div>
         <div class="scenario-card fade-up">
-          <img
-            class="scenario-photo"
-            src="images/6.png"
-            alt="Construction Sites"
-          />
+          <picture>
+            <source type="image/avif" srcset="images/6.avif" />
+            <source type="image/webp" srcset="images/6.webp" />
+            <img
+              class="scenario-photo"
+              src="images/6.jpg"
+              alt="Construction Sites"
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
           <div class="scenario-overlay"></div>
           <div class="scenario-badge">Hedge Trimmer · Tracked Carrier</div>
           <div class="scenario-label">Construction Sites</div>
@@ -1917,6 +2016,20 @@
       const dotsW = document.getElementById("heroDots");
       let cur = 0,
         timer;
+      function loadHeroSlideImg(slide) {
+        const picture = slide?.querySelector(".hero-slide-bg picture");
+        if (!picture) return;
+        picture.querySelectorAll("source[data-srcset]").forEach((source) => {
+          if (!source.dataset.srcset) return;
+          source.srcset = source.dataset.srcset;
+          delete source.dataset.srcset;
+        });
+        const img = picture.querySelector("img");
+        if (img?.dataset.src && !img.getAttribute("src")) {
+          img.src = img.dataset.src;
+          delete img.dataset.src;
+        }
+      }
       slides.forEach((_, i) => {
         const d = document.createElement("button");
         d.className = "hero-dot" + (i === 0 ? " active" : "");
@@ -1929,8 +2042,12 @@
         cur = (n + slides.length) % slides.length;
         slides[cur].classList.add("active");
         dotsW.children[cur].classList.add("active");
+        loadHeroSlideImg(slides[cur]);
+        loadHeroSlideImg(slides[(cur + 1) % slides.length]);
         resetTimer();
       }
+      loadHeroSlideImg(slides[0]);
+      loadHeroSlideImg(slides[1]);
       function resetTimer() {
         clearInterval(timer);
         timer = setInterval(() => goTo(cur + 1), 3000);
