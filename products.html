@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Products | PANDAG</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.page-hero { margin-top:66px; background:var(--dark); border-bottom:3px solid #6B48FF; padding:100px 5vw 80px; }
+.page-hero-tag { font-family:'Barlow Condensed',sans-serif; font-size:11px; font-weight:800; letter-spacing:.22em; text-transform:uppercase; color:#6B48FF; margin-bottom:14px; }
+.page-hero h1 { font-family:'Barlow Condensed',sans-serif; font-size:clamp(3rem,7vw,6rem); font-weight:900; text-transform:uppercase; color:#fff; line-height:.9; }
+.page-hero h1 em { font-style:normal; color:#6B48FF; }
+.page-hero p { font-size:1.05rem; color:rgba(255,255,255,.4); line-height:1.75; max-width:540px; margin-top:20px; }
+
+/* Filter tabs */
+.filter-bar { padding:32px 5vw; background:var(--white); border-bottom:1px solid var(--border); display:flex; gap:10px; flex-wrap:wrap; }
+.filter-btn { font-family:'Barlow Condensed',sans-serif; font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:8px 18px; border:1px solid var(--border); background:transparent; color:var(--muted); cursor:pointer; transition:all .2s; }
+.filter-btn.active,.filter-btn:hover { background:#6B48FF; color:#fff; border-color:#6B48FF; }
+
+/* Product grid */
+.products-section { padding:80px 5vw; background:var(--off-white); }
+.prod-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+
+/* Full product card */
+.prod-card { background:var(--white); border:1px solid var(--border); overflow:hidden; display:flex; flex-direction:column; position:relative; transition:box-shadow .3s, border-color .3s; }
+.prod-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:#6B48FF; transform:scaleX(0); transform-origin:left; transition:transform .4s; z-index:1; }
+.prod-card:hover { box-shadow:0 8px 36px rgba(107,72,255,.1); border-color:rgba(107,72,255,.2); }
+.prod-card:hover::before { transform:scaleX(1); }
+.prod-img { aspect-ratio:16/9; background:var(--dark2); overflow:hidden; position:relative; }
+.prod-img img { width:100%; height:100%; object-fit:cover; opacity:.85; transition:transform .5s; }
+.prod-card:hover .prod-img img { transform:scale(1.04); }
+.prod-img-ph { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; }
+.prod-img-ph svg { width:48px; height:48px; color:#6B48FF; opacity:.28; }
+.prod-img-ph span { font-family:'Barlow Condensed',sans-serif; font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:rgba(255,255,255,.22); }
+.prod-body { padding:28px; flex:1; display:flex; flex-direction:column; }
+.prod-num { font-family:'Barlow Condensed',sans-serif; font-size:2rem; font-weight:900; color:rgba(107,72,255,.1); line-height:1; margin-bottom:10px; }
+.prod-name { font-family:'Barlow Condensed',sans-serif; font-size:1.25rem; font-weight:800; text-transform:uppercase; color:var(--text); margin-bottom:10px; }
+.prod-desc { font-size:.875rem; color:var(--muted); line-height:1.75; margin-bottom:16px; flex:1; }
+.prod-tags { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:20px; }
+.tag { font-family:'Barlow Condensed',sans-serif; font-size:10px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:4px 10px; border:1px solid rgba(107,72,255,.25); color:#6B48FF; background:rgba(107,72,255,.05); }
+.prod-specs { list-style:none; display:flex; flex-direction:column; gap:6px; margin-bottom:20px; }
+.prod-specs li { display:flex; gap:8px; font-size:.8rem; color:var(--mid); }
+.prod-specs li::before { content:'▸'; color:#6B48FF; flex-shrink:0; }
+.prod-cta-row { display:flex; gap:12px; flex-wrap:wrap; }
+
+@media(max-width:1020px){ .prod-grid { grid-template-columns:repeat(2,1fr); } }
+@media(max-width:640px){ .prod-grid { grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="logo-07.png" alt="PANDAG" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+    <span class="nav-logo-text">PANDAG</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="products.html" class="active">Products</a></li>
+    <li><a href="contact.html">Contact Us</a></li>
+    <li><a href="about.html">About Us</a></li>
+  </ul>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-tag">Product Range</div>
+  <h1>Five Machines.<br><em>One Standard</em><br>of Excellence.</h1>
+  <p>Every PANDAG product is engineered for professional, demanding, daily use — tested in the harshest real-world conditions before it ships.</p>
+</section>
+
+<div class="filter-bar">
+  <button class="filter-btn active" onclick="filterProd(this,'all')">All Products</button>
+  <button class="filter-btn" onclick="filterProd(this,'mowing')">Mowing</button>
+  <button class="filter-btn" onclick="filterProd(this,'timber')">Timber</button>
+  <button class="filter-btn" onclick="filterProd(this,'transport')">Transport</button>
+</div>
+
+<section class="products-section">
+  <div class="prod-grid" id="prodGrid">
+
+    <div class="prod-card fade-up" data-cat="mowing">
+      <div class="prod-img"><img src="product-mower.jpg" alt="Robotic Mower" onerror="this.style.display='none'"><div class="prod-img-ph"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="36" r="5"/><circle cx="36" cy="36" r="5"/><path d="M7 36H4V28L10 16h28l6 12v8h-3"/><path d="M17 36h14"/><path d="M10 16l4-8h20"/><circle cx="24" cy="20" r="4"/></svg><span>product-mower.jpg</span></div></div>
+      <div class="prod-body">
+        <div class="prod-num">01</div>
+        <div class="prod-name">Robotic Lawn Mower — G1</div>
+        <div class="prod-desc">Fully autonomous commercial mowing platform with RTK navigation, AI obstacle avoidance and multi-zone scheduling. Built for solar farms, golf courses, estates and steep slopes.</div>
+        <div class="prod-tags"><span class="tag">RTK GPS</span><span class="tag">AI Detection</span><span class="tag">Auto Charge</span><span class="tag">App Control</span><span class="tag">IPX5</span><span class="tag">Modular</span></div>
+        <ul class="prod-specs">
+          <li>Coverage: up to 12 acres per day</li>
+          <li>Slope performance: up to 35° (70%)</li>
+          <li>Battery runtime: 6 hours continuous</li>
+          <li>Operating noise: below 65 dB</li>
+          <li>Attachments: sprayer, sweeper, snow blower</li>
+        </ul>
+        <div class="prod-cta-row"><a href="contact.html" class="btn-primary" style="font-size:12px;padding:11px 24px;">Request a Quote</a></div>
+      </div>
+    </div>
+
+    <div class="prod-card fade-up" data-cat="timber">
+      <div class="prod-img"><img src="product-chipper.jpg" alt="Wood Chipper" onerror="this.style.display='none'"><div class="prod-img-ph"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="14" width="36" height="22" rx="2"/><path d="M14 14V10q0-4 4-4h12q4 0 4 4v4"/><path d="M18 25h12M24 20v10"/><circle cx="10" cy="38" r="3"/><circle cx="38" cy="38" r="3"/></svg><span>product-chipper.jpg</span></div></div>
+      <div class="prod-body">
+        <div class="prod-num">02</div>
+        <div class="prod-name">Wood Chipper</div>
+        <div class="prod-desc">High-speed dual-blade chipping system with automatic feed control and safety auto-stop. Tow-behind design for easy site-to-site transport.</div>
+        <div class="prod-tags"><span class="tag">Dual Blade</span><span class="tag">Auto Feed</span><span class="tag">Low Noise</span><span class="tag">Safety Stop</span><span class="tag">Tow-Behind</span></div>
+        <ul class="prod-specs">
+          <li>Max branch diameter: 100 mm</li>
+          <li>Output: uniform chip sizing for mulch reuse</li>
+          <li>Start: electric one-pull start</li>
+          <li>Collection: wide-mouth discharge chute</li>
+        </ul>
+        <div class="prod-cta-row"><a href="contact.html" class="btn-primary" style="font-size:12px;padding:11px 24px;">Request a Quote</a></div>
+      </div>
+    </div>
+
+    <div class="prod-card fade-up" data-cat="timber">
+      <div class="prod-img"><img src="product-splitter.jpg" alt="Log Splitter" onerror="this.style.display='none'"><div class="prod-img-ph"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M24 6L38 20H30v22H18V20H10Z"/><path d="M14 30H8M34 30h6"/></svg><span>product-splitter.jpg</span></div></div>
+      <div class="prod-body">
+        <div class="prod-num">03</div>
+        <div class="prod-name">Log Splitter</div>
+        <div class="prod-desc">High-force hydraulic cylinder with two-hand safety interlock. Horizontal and vertical splitting modes, fast cycle time and a towable frame for mobile operation.</div>
+        <div class="prod-tags"><span class="tag">Hydraulic</span><span class="tag">Dual Mode</span><span class="tag">Safety Lock</span><span class="tag">Fast Cycle</span><span class="tag">Towable</span></div>
+        <ul class="prod-specs">
+          <li>Max log diameter: 500 mm</li>
+          <li>Modes: horizontal and vertical</li>
+          <li>Safety: certified two-hand interlock</li>
+          <li>Frame: road-legal tow hitch included</li>
+        </ul>
+        <div class="prod-cta-row"><a href="contact.html" class="btn-primary" style="font-size:12px;padding:11px 24px;">Request a Quote</a></div>
+      </div>
+    </div>
+
+    <div class="prod-card fade-up" data-cat="transport">
+      <div class="prod-img"><img src="product-carrier.jpg" alt="Tracked Carrier" onerror="this.style.display='none'"><div class="prod-img-ph"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="22" width="36" height="14" rx="2"/><rect x="10" y="13" width="28" height="11" rx="1"/><ellipse cx="11" cy="37" rx="5" ry="3"/><ellipse cx="37" cy="37" rx="5" ry="3"/></svg><span>product-carrier.jpg</span></div></div>
+      <div class="prod-body">
+        <div class="prod-num">04</div>
+        <div class="prod-name">Tracked Carrier</div>
+        <div class="prod-desc">Wide rubber track chassis with steep-grade climbing, anti-rollover stability and optional wireless remote control. Electric drive for zero-emission operation.</div>
+        <div class="prod-tags"><span class="tag">All-Terrain</span><span class="tag">Electric</span><span class="tag">Remote Op.</span><span class="tag">Anti-Rollover</span><span class="tag">High Payload</span></div>
+        <ul class="prod-specs">
+          <li>Drive: zero-emission electric motors</li>
+          <li>Tracks: low ground-pressure rubber</li>
+          <li>Control: onboard or wireless remote</li>
+          <li>Stability: active anti-rollover system</li>
+        </ul>
+        <div class="prod-cta-row"><a href="contact.html" class="btn-primary" style="font-size:12px;padding:11px 24px;">Request a Quote</a></div>
+      </div>
+    </div>
+
+    <div class="prod-card fade-up" data-cat="transport">
+      <div class="prod-img"><img src="product-tipper.jpg" alt="Tipper Truck" onerror="this.style.display='none'"><div class="prod-img-ph"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="28" width="38" height="14" rx="2"/><path d="M28 28V16a2 2 0 00-2-2H10a2 2 0 00-2 2v12"/><circle cx="10" cy="42" r="4"/><circle cx="32" cy="42" r="4"/><path d="M28 20h8l6 8H28"/></svg><span>product-tipper.jpg</span></div></div>
+      <div class="prod-body">
+        <div class="prod-num">05</div>
+        <div class="prod-name">Tipper Truck</div>
+        <div class="prod-desc">Electric-powered tipper with hydraulic dump bed, smart dashboard and ROPS-compliant cab. High payload, compact turning radius for quarries, farms and construction.</div>
+        <div class="prod-tags"><span class="tag">Electric</span><span class="tag">Hydraulic Tip</span><span class="tag">Smart Dash</span><span class="tag">ROPS Cab</span><span class="tag">High Payload</span></div>
+        <ul class="prod-specs">
+          <li>Power: pure electric, full-day runtime</li>
+          <li>Tipping: single-switch hydraulic ram</li>
+          <li>Safety: ROPS cab, tipping lock pin</li>
+          <li>Dashboard: payload, battery, angle display</li>
+        </ul>
+        <div class="prod-cta-row"><a href="contact.html" class="btn-primary" style="font-size:12px;padding:11px 24px;">Request a Quote</a></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="cta" style="background:var(--brand);padding:80px 5vw;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;">
+  <h2 class="cta-h2 fade-up">Not Sure Which<br><span>Machine You Need?</span></h2>
+  <a href="contact.html" class="btn-white fade-up">Talk to Our Team</a>
+</section>
+
+<footer>
+  <div class="footer-nav-simple">
+    <div class="footer-nav-cols">
+      <div>
+        <div class="footer-nav-title">Products</div>
+        <div class="footer-nav-links">
+          <a href="products.html">Robotic Lawn Mower</a>
+          <a href="products.html">Wood Chipper</a>
+          <a href="products.html">Log Splitter</a>
+          <a href="products.html">Tracked Carrier</a>
+          <a href="products.html">Tipper Truck</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-nav-title">Company</div>
+        <div class="footer-nav-links">
+          <a href="about.html">About Us</a>
+          <a href="contact.html">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">Copyright © PANDAG. All Rights Reserved.</div>
+</footer>
+<script>
+function filterProd(btn, cat) {
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.prod-card').forEach(c=>{
+    c.style.display=(cat==='all'||c.dataset.cat===cat)?'flex':'none';
+  });
+}
+const obs=new IntersectionObserver((e)=>{e.forEach((entry,i)=>{if(entry.isIntersecting){setTimeout(()=>entry.target.classList.add('visible'),i*80);obs.unobserve(entry.target);}});},{threshold:.07});
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

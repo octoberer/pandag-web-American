@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us | PANDAG</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.page-hero { margin-top:66px; background:var(--dark); border-bottom:3px solid #6B48FF; padding:100px 5vw 80px; }
+.page-hero-tag { font-family:'Barlow Condensed',sans-serif; font-size:11px; font-weight:800; letter-spacing:.22em; text-transform:uppercase; color:#6B48FF; margin-bottom:14px; }
+.page-hero h1 { font-family:'Barlow Condensed',sans-serif; font-size:clamp(3rem,7vw,6rem); font-weight:900; text-transform:uppercase; color:#fff; line-height:.9; }
+.page-hero h1 em { font-style:normal; color:#6B48FF; }
+.page-hero p { font-size:1.05rem; color:rgba(255,255,255,.4); line-height:1.75; max-width:540px; margin-top:20px; }
+
+.contact-section { padding:100px 5vw; background:var(--off-white); }
+.contact-grid { display:grid; grid-template-columns:1fr 1.5fr; gap:80px; align-items:start; }
+
+.contact-info {}
+.info-blocks { display:flex; flex-direction:column; gap:24px; margin-top:36px; }
+.info-block { display:flex; gap:16px; align-items:flex-start; }
+.info-icon { width:42px; height:42px; flex-shrink:0; border:1px solid var(--border); background:var(--white); display:flex; align-items:center; justify-content:center; color:#6B48FF; }
+.info-icon svg { width:18px; height:18px; }
+.info-label { font-family:'Barlow Condensed',sans-serif; font-size:10px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); margin-bottom:3px; }
+.info-val { font-size:.9rem; color:var(--text); }
+
+.form-wrap { background:var(--white); border:1px solid var(--border); padding:52px; }
+.form-title { font-family:'Barlow Condensed',sans-serif; font-size:1.4rem; font-weight:800; text-transform:uppercase; letter-spacing:.06em; color:var(--text); margin-bottom:32px; }
+.form-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.form-group { margin-bottom:16px; }
+.form-label { display:block; font-family:'Barlow Condensed',sans-serif; font-size:10px; font-weight:800; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); margin-bottom:8px; }
+.form-input, .form-textarea, .form-select {
+  width:100%; background:var(--off-white); border:1px solid var(--border);
+  color:var(--text); font-family:'Barlow',sans-serif; font-size:.9rem;
+  padding:11px 14px; outline:none; transition:border-color .2s; appearance:none;
+}
+.form-input:focus,.form-textarea:focus,.form-select:focus { border-color:#6B48FF; }
+.form-textarea { resize:vertical; min-height:120px; }
+.form-submit { width:100%; font-family:'Barlow Condensed',sans-serif; font-size:13px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; padding:16px; background:#6B48FF; color:#fff; border:none; cursor:pointer; margin-top:8px; transition:opacity .2s; }
+.form-submit:hover { opacity:.85; }
+
+.offices { padding:100px 5vw; background:var(--white); border-top:1px solid var(--border); }
+.offices-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:52px; }
+.office-card { border:1px solid var(--border); padding:32px 28px; }
+.office-flag { font-size:2rem; margin-bottom:14px; }
+.office-name { font-family:'Barlow Condensed',sans-serif; font-size:1.1rem; font-weight:800; text-transform:uppercase; color:var(--text); margin-bottom:10px; }
+.office-detail { font-size:.875rem; color:var(--muted); line-height:1.75; }
+
+@media(max-width:1020px){ .contact-grid{grid-template-columns:1fr;gap:52px;} .offices-grid{grid-template-columns:1fr 1fr;} }
+@media(max-width:640px){ .form-grid{grid-template-columns:1fr;} .offices-grid{grid-template-columns:1fr;} }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="logo-07.png" alt="PANDAG" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+    <span class="nav-logo-text">PANDAG</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="products.html">Products</a></li>
+    <li><a href="contact.html" class="active">Contact Us</a></li>
+    <li><a href="about.html">About Us</a></li>
+  </ul>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-tag">Get in Touch</div>
+  <h1>Let's Start a<br><em>Conversation</em></h1>
+  <p>Whether you need product specs, pricing or want to explore a long-term partnership, our team responds within 48 hours.</p>
+</section>
+
+<section class="contact-section">
+  <div style="max-width:760px; margin:0 auto;">
+    <div class="form-wrap fade-up">
+      <div class="form-title">Send an Inquiry</div>
+      <div class="form-grid">
+        <div class="form-group"><label class="form-label">Full Name</label><input class="form-input" type="text" placeholder="Your name" onfocus="this.style.borderColor='#6B48FF'" onblur="this.style.borderColor='rgba(0,0,0,0.08)'"></div>
+        <div class="form-group"><label class="form-label">Company</label><input class="form-input" type="text" placeholder="Company name" onfocus="this.style.borderColor='#6B48FF'" onblur="this.style.borderColor='rgba(0,0,0,0.08)'"></div>
+        <div class="form-group"><label class="form-label">Phone</label><input class="form-input" type="tel" placeholder="+1 000 000 0000" onfocus="this.style.borderColor='#6B48FF'" onblur="this.style.borderColor='rgba(0,0,0,0.08)'"></div>
+        <div class="form-group"><label class="form-label">Email</label><input class="form-input" type="email" placeholder="email@company.com" onfocus="this.style.borderColor='#6B48FF'" onblur="this.style.borderColor='rgba(0,0,0,0.08)'"></div>
+      </div>
+      <div class="form-group"><label class="form-label">Product of Interest</label>
+        <select class="form-select" onfocus="this.style.borderColor='#6B48FF'" onblur="this.style.borderColor='rgba(0,0,0,0.08)'">
+          <option value="">Select a product...</option>
+          <option>Robotic Lawn Mower</option>
+          <option>Wood Chipper</option>
+          <option>Log Splitter</option>
+          <option>Tracked Carrier</option>
+          <option>Tipper Truck</option>
+          <option>Multiple / General Inquiry</option>
+        </select>
+      </div>
+      <div class="form-group"><label class="form-label">Inquiry Type</label>
+        <select class="form-select" onfocus="this.style.borderColor='#6B48FF'" onblur="this.style.borderColor='rgba(0,0,0,0.08)'">
+          <option>Product Information</option>
+          <option>Pricing &amp; Quote</option>
+          <option>Dealer Partnership</option>
+          <option>Technical Support</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group"><label class="form-label">Message</label><textarea class="form-textarea" placeholder="Describe your requirements including quantity, application and timeline." onfocus="this.style.borderColor='#6B48FF'" onblur="this.style.borderColor='rgba(0,0,0,0.08)'"></textarea></div>
+      <button class="form-submit" onclick="alert('Thank you for your inquiry. We will respond within 48 hours.')">Submit Inquiry</button>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="footer-nav-simple">
+    <div class="footer-nav-cols">
+      <div>
+        <div class="footer-nav-title">Products</div>
+        <div class="footer-nav-links">
+          <a href="products.html">Robotic Lawn Mower</a>
+          <a href="products.html">Wood Chipper</a>
+          <a href="products.html">Log Splitter</a>
+          <a href="products.html">Tracked Carrier</a>
+          <a href="products.html">Tipper Truck</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-nav-title">Company</div>
+        <div class="footer-nav-links">
+          <a href="about.html">About Us</a>
+          <a href="contact.html">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">Copyright © PANDAG. All Rights Reserved.</div>
+</footer>
+<script>
+const obs=new IntersectionObserver((e)=>{e.forEach((entry,i)=>{if(entry.isIntersecting){setTimeout(()=>entry.target.classList.add('visible'),i*80);obs.unobserve(entry.target);}});},{threshold:.07});
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
