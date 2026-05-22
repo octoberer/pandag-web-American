@@ -28,6 +28,7 @@
 .prod-card:hover { box-shadow:0 8px 36px rgba(107,72,255,.1); border-color:rgba(107,72,255,.2); }
 .prod-card:hover::before { transform:scaleX(1); }
 .prod-img { aspect-ratio:16/9; background:var(--dark2); overflow:hidden; position:relative; }
+.prod-img picture { display:block; width:100%; height:100%; }
 .prod-img img { width:100%; height:100%; object-fit:cover; opacity:.85; transition:transform .5s; }
 .prod-card:hover .prod-img img { transform:scale(1.04); }
 .prod-img-ph { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; }
@@ -80,7 +81,13 @@
   <div class="prod-grid" id="prodGrid">
 
     <div class="prod-card fade-up" data-cat="mowing">
-      <div class="prod-img"><img src="product-mower.jpg" alt="Robotic Mower" onerror="this.style.display='none'"><div class="prod-img-ph"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="36" r="5"/><circle cx="36" cy="36" r="5"/><path d="M7 36H4V28L10 16h28l6 12v8h-3"/><path d="M17 36h14"/><path d="M10 16l4-8h20"/><circle cx="24" cy="20" r="4"/></svg><span>product-mower.jpg</span></div></div>
+      <div class="prod-img">
+        <picture>
+          <source type="image/avif" srcset="images/11.avif" />
+          <source type="image/webp" srcset="images/11.webp" />
+          <img src="images/11.jpg" alt="Robotic Mower" loading="lazy" decoding="async" />
+        </picture>
+      </div>
       <div class="prod-body">
         <div class="prod-num">01</div>
         <div class="prod-name">Robotic Lawn Mower — G1</div>
@@ -98,7 +105,13 @@
     </div>
 
     <div class="prod-card fade-up" data-cat="timber">
-      <div class="prod-img"><img src="product-chipper.jpg" alt="Wood Chipper" onerror="this.style.display='none'"><div class="prod-img-ph"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="14" width="36" height="22" rx="2"/><path d="M14 14V10q0-4 4-4h12q4 0 4 4v4"/><path d="M18 25h12M24 20v10"/><circle cx="10" cy="38" r="3"/><circle cx="38" cy="38" r="3"/></svg><span>product-chipper.jpg</span></div></div>
+      <div class="prod-img">
+        <picture>
+          <source type="image/avif" srcset="images/6.avif" />
+          <source type="image/webp" srcset="images/6.webp" />
+          <img src="images/6.jpg" alt="Wood Chipper" loading="lazy" decoding="async" />
+        </picture>
+      </div>
       <div class="prod-body">
         <div class="prod-num">02</div>
         <div class="prod-name">Wood Chipper</div>
@@ -115,7 +128,13 @@
     </div>
 
     <div class="prod-card fade-up" data-cat="timber">
-      <div class="prod-img"><img src="product-splitter.jpg" alt="Log Splitter" onerror="this.style.display='none'"><div class="prod-img-ph"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M24 6L38 20H30v22H18V20H10Z"/><path d="M14 30H8M34 30h6"/></svg><span>product-splitter.jpg</span></div></div>
+      <div class="prod-img">
+        <picture>
+          <source type="image/avif" srcset="images/4.avif" />
+          <source type="image/webp" srcset="images/4.webp" />
+          <img src="images/4.jpg" alt="Log Splitter" loading="lazy" decoding="async" />
+        </picture>
+      </div>
       <div class="prod-body">
         <div class="prod-num">03</div>
         <div class="prod-name">Log Splitter</div>
@@ -132,7 +151,13 @@
     </div>
 
     <div class="prod-card fade-up" data-cat="transport">
-      <div class="prod-img"><img src="product-carrier.jpg" alt="Tracked Carrier" onerror="this.style.display='none'"><div class="prod-img-ph"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="22" width="36" height="14" rx="2"/><rect x="10" y="13" width="28" height="11" rx="1"/><ellipse cx="11" cy="37" rx="5" ry="3"/><ellipse cx="37" cy="37" rx="5" ry="3"/></svg><span>product-carrier.jpg</span></div></div>
+      <div class="prod-img">
+        <picture>
+          <source type="image/avif" srcset="images/7.avif" />
+          <source type="image/webp" srcset="images/7.webp" />
+          <img src="images/7.jpg" alt="Tracked Carrier" loading="lazy" decoding="async" />
+        </picture>
+      </div>
       <div class="prod-body">
         <div class="prod-num">04</div>
         <div class="prod-name">Tracked Carrier</div>
@@ -149,7 +174,13 @@
     </div>
 
     <div class="prod-card fade-up" data-cat="transport">
-      <div class="prod-img"><img src="product-trimmer.jpg" alt="Hedge Trimmer" onerror="this.style.display='none'"><div class="prod-img-ph"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="28" width="38" height="14" rx="2"/><path d="M28 28V16a2 2 0 00-2-2H10a2 2 0 00-2 2v12"/><circle cx="10" cy="42" r="4"/><circle cx="32" cy="42" r="4"/><path d="M28 20h8l6 8H28"/></svg><span>product-trimmer.jpg</span></div></div>
+      <div class="prod-img">
+        <picture>
+          <source type="image/avif" srcset="images/9.avif" />
+          <source type="image/webp" srcset="images/9.webp" />
+          <img src="images/9.jpg" alt="Hedge Trimmer" loading="lazy" decoding="async" />
+        </picture>
+      </div>
       <div class="prod-body">
         <div class="prod-num">05</div>
         <div class="prod-name">Hedge Trimmer</div>
