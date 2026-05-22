@@ -1,517 +1,1999 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PANDAG | Intelligent Outdoor Equipment</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-<style>
-/* ─── HERO SLIDESHOW ─── */
-#home {
-  margin-top:66px; height:92vh; min-height:560px; max-height:900px;
-  position:relative; overflow:hidden;
-}
-.hero-slides { position:absolute; inset:0; }
-.hero-slide { position:absolute; inset:0; opacity:0; transition:opacity 1s ease; pointer-events:none; }
-.hero-slide.active { opacity:1; pointer-events:auto; }
-.hero-slide-bg { position:absolute; inset:0; background:linear-gradient(135deg,#1a1a2e 0%,#0d0d18 50%,#141428 100%); }
-.hero-slide-bg img { width:100%; height:100%; object-fit:cover; opacity:.82; }
-.hero-ph { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:12px; pointer-events:none; }
-.hero-ph svg { width:60px; height:60px; color:rgba(255,255,255,.1); }
-.hero-ph span { font-family:'Barlow Condensed',sans-serif; font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:rgba(255,255,255,.18); }
-.hero-overlay { position:absolute; inset:0; background:linear-gradient(to top,rgba(8,8,15,.95) 0%,rgba(8,8,15,.42) 45%,rgba(8,8,15,.06) 100%); }
-.hero-slide-content { position:absolute; inset:0; display:flex; align-items:flex-end; padding:0 5vw 80px; z-index:2; }
-.hero-text { max-width:860px; }
-.hero-eyebrow {
-  font-family:'Barlow Condensed',sans-serif; font-size:12px; font-weight:700;
-  letter-spacing:.22em; text-transform:uppercase; color:#6B48FF;
-  margin-bottom:18px; display:flex; align-items:center; gap:10px;
-}
-.pulse { width:7px; height:7px; border-radius:50%; background:#6B48FF; display:inline-block; animation:blink 2s infinite; flex-shrink:0; }
-@keyframes blink { 0%,100%{opacity:1;} 50%{opacity:.2;} }
-.hero-h1 {
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:clamp(3.2rem,7.5vw,7rem); font-weight:900; line-height:.9;
-  text-transform:uppercase; color:#fff; margin-bottom:26px;
-}
-.hero-h1 em { font-style:normal; color:#6B48FF; }
-.hero-sub { font-size:1.05rem; font-weight:300; line-height:1.75; color:rgba(255,255,255,.45); max-width:520px; margin-bottom:36px; }
-.hero-btns { display:flex; gap:14px; flex-wrap:wrap; }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PANDAG | Intelligent Outdoor Equipment</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* ─── HERO SLIDESHOW ─── */
+      #home {
+        margin-top: 66px;
+        height: 92vh;
+        min-height: 560px;
+        max-height: 900px;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero-slides {
+        position: absolute;
+        inset: 0;
+      }
+      .hero-slide {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        transition: opacity 1s ease;
+        pointer-events: none;
+      }
+      .hero-slide.active {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .hero-slide-bg {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          135deg,
+          #1a1a2e 0%,
+          #0d0d18 50%,
+          #141428 100%
+        );
+      }
+      .hero-slide-bg img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.82;
+      }
+      .hero-ph {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        pointer-events: none;
+      }
+      .hero-ph svg {
+        width: 60px;
+        height: 60px;
+        color: rgba(255, 255, 255, 0.1);
+      }
+      .hero-ph span {
+        font-family: "Barlow Condensed", sans-serif;
+        font-size: 11px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.18);
+      }
+      .hero-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          rgba(8, 8, 15, 0.95) 0%,
+          rgba(8, 8, 15, 0.42) 45%,
+          rgba(8, 8, 15, 0.06) 100%
+        );
+      }
+      .hero-slide-content {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: flex-end;
+        padding: 0 5vw 80px;
+        z-index: 2;
+      }
+      .hero-text {
+        max-width: 860px;
+      }
+      .hero-eyebrow {
+        font-family: "Barlow Condensed", sans-serif;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: #6b48ff;
+        margin-bottom: 18px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .pulse {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: #6b48ff;
+        display: inline-block;
+        animation: blink 2s infinite;
+        flex-shrink: 0;
+      }
+      @keyframes blink {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.2;
+        }
+      }
+      .hero-h1 {
+        font-family: "Barlow Condensed", sans-serif;
+        font-size: clamp(3.2rem, 7.5vw, 7rem);
+        font-weight: 900;
+        line-height: 0.9;
+        text-transform: uppercase;
+        color: #fff;
+        margin-bottom: 26px;
+      }
+      .hero-h1 em {
+        font-style: normal;
+        color: #6b48ff;
+      }
+      .hero-sub {
+        font-size: 1.05rem;
+        font-weight: 300;
+        line-height: 1.75;
+        color: rgba(255, 255, 255, 0.45);
+        max-width: 520px;
+        margin-bottom: 36px;
+      }
+      .hero-btns {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
 
-/* Arrow — icon only, border appears on hover */
-.hero-arrow {
-  position:absolute; top:50%; transform:translateY(-50%); z-index:10;
-  width:48px; height:48px; cursor:pointer;
-  background:transparent; border:1px solid transparent;
-  display:flex; align-items:center; justify-content:center;
-  color:rgba(255,255,255,.7); transition:border-color .25s, background .25s, color .25s;
-}
-.hero-arrow:hover { background:rgba(255,255,255,.12); border-color:rgba(255,255,255,.3); color:#fff; backdrop-filter:blur(6px); }
-.hero-arrow svg { width:24px; height:24px; }
-.hero-arrow-left { left:20px; }
-.hero-arrow-right { right:20px; }
+      /* Arrow — icon only, border appears on hover */
+      .hero-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 10;
+        width: 48px;
+        height: 48px;
+        cursor: pointer;
+        background: transparent;
+        border: 1px solid transparent;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: rgba(255, 255, 255, 0.7);
+        transition:
+          border-color 0.25s,
+          background 0.25s,
+          color 0.25s;
+      }
+      .hero-arrow:hover {
+        background: rgba(255, 255, 255, 0.12);
+        border-color: rgba(255, 255, 255, 0.3);
+        color: #fff;
+        backdrop-filter: blur(6px);
+      }
+      .hero-arrow svg {
+        width: 24px;
+        height: 24px;
+      }
+      .hero-arrow-left {
+        left: 20px;
+      }
+      .hero-arrow-right {
+        right: 20px;
+      }
 
-.hero-dots { position:absolute; bottom:26px; left:50%; transform:translateX(-50%); display:flex; gap:8px; z-index:10; }
-.hero-dot { width:28px; height:3px; background:rgba(255,255,255,.28); border:none; cursor:pointer; padding:0; transition:background .3s, width .3s; }
-.hero-dot.active { background:#6B48FF; width:44px; }
+      .hero-dots {
+        position: absolute;
+        bottom: 26px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 8px;
+        z-index: 10;
+      }
+      .hero-dot {
+        width: 28px;
+        height: 3px;
+        background: rgba(255, 255, 255, 0.28);
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        transition:
+          background 0.3s,
+          width 0.3s;
+      }
+      .hero-dot.active {
+        background: #6b48ff;
+        width: 44px;
+      }
 
-/* ─── PRODUCT FEATURES TABS ─── */
-#features { background:var(--white); border-top:3px solid #6B48FF; border-bottom:1px solid var(--border); padding:72px 5vw; }
-.feat-tabs { display:flex; gap:0; flex-wrap:wrap; margin-bottom:52px; border-bottom:1px solid var(--border); }
-.feat-tab {
-  font-family:'Barlow Condensed',sans-serif; font-size:13px; font-weight:700;
-  letter-spacing:.1em; text-transform:uppercase; padding:14px 24px;
-  background:transparent; border:none; color:var(--muted); cursor:pointer;
-  position:relative; transition:color .2s; white-space:nowrap;
-}
-.feat-tab::after { content:''; position:absolute; bottom:-1px; left:0; right:0; height:2px; background:#6B48FF; transform:scaleX(0); transition:transform .25s; }
-.feat-tab.active { color:var(--text); }
-.feat-tab.active::after { transform:scaleX(1); }
-.feat-panel { display:none; }
-.feat-panel.active { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border); border:1px solid var(--border); }
-.feat-card { background:var(--white); padding:32px 28px; position:relative; overflow:hidden; transition:background .3s; }
-.feat-card::after { content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:#6B48FF; transform:scaleX(0); transform-origin:left; transition:transform .4s; }
-.feat-card:hover { background:rgba(107,72,255,.03); }
-.feat-card:hover::after { transform:scaleX(1); }
-.feat-icon { width:42px; height:42px; background:rgba(107,72,255,.08); border:1px solid rgba(107,72,255,.18); display:flex; align-items:center; justify-content:center; color:#6B48FF; margin-bottom:18px; }
-.feat-icon svg { width:19px; height:19px; }
-.feat-title { font-family:'Barlow Condensed',sans-serif; font-size:1.05rem; font-weight:800; text-transform:uppercase; letter-spacing:.04em; color:var(--text); margin-bottom:8px; }
-.feat-desc { font-size:.875rem; color:var(--muted); line-height:1.7; }
+      /* ─── PRODUCT FEATURES TABS ─── */
+      #features {
+        background: var(--white);
+        border-top: 3px solid #6b48ff;
+        border-bottom: 1px solid var(--border);
+        padding: 72px 5vw;
+      }
+      .feat-tabs {
+        display: flex;
+        gap: 0;
+        flex-wrap: wrap;
+        margin-bottom: 52px;
+        border-bottom: 1px solid var(--border);
+      }
+      .feat-tab {
+        font-family: "Barlow Condensed", sans-serif;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 14px 24px;
+        background: transparent;
+        border: none;
+        color: var(--muted);
+        cursor: pointer;
+        position: relative;
+        transition: color 0.2s;
+        white-space: nowrap;
+      }
+      .feat-tab::after {
+        content: "";
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: #6b48ff;
+        transform: scaleX(0);
+        transition: transform 0.25s;
+      }
+      .feat-tab.active {
+        color: var(--text);
+      }
+      .feat-tab.active::after {
+        transform: scaleX(1);
+      }
+      .feat-panel {
+        display: none;
+      }
+      .feat-panel.active {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1px;
+        background: var(--border);
+        border: 1px solid var(--border);
+      }
+      .feat-card {
+        background: var(--white);
+        padding: 32px 28px;
+        position: relative;
+        overflow: hidden;
+        transition: background 0.3s;
+      }
+      .feat-card::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: #6b48ff;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.4s;
+      }
+      .feat-card:hover {
+        background: rgba(107, 72, 255, 0.03);
+      }
+      .feat-card:hover::after {
+        transform: scaleX(1);
+      }
+      .feat-icon {
+        width: 42px;
+        height: 42px;
+        background: rgba(107, 72, 255, 0.08);
+        border: 1px solid rgba(107, 72, 255, 0.18);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #6b48ff;
+        margin-bottom: 18px;
+      }
+      .feat-icon svg {
+        width: 19px;
+        height: 19px;
+      }
+      .feat-title {
+        font-family: "Barlow Condensed", sans-serif;
+        font-size: 1.05rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: var(--text);
+        margin-bottom: 8px;
+      }
+      .feat-desc {
+        font-size: 0.875rem;
+        color: var(--muted);
+        line-height: 1.7;
+      }
 
-/* ─── PRODUCT CAROUSEL ─── */
-#products { background:var(--off-white); border-top:1px solid var(--border); padding:100px 5vw; }
-.products-header { margin-bottom:48px; }
-.carousel-wrap { position:relative; }
-.carousel-track-outer { overflow:hidden; }
-.carousel-track { display:flex; gap:20px; transition:transform .45s cubic-bezier(.4,0,.2,1); }
-.product-card {
-  background:var(--white); border:1px solid var(--border);
-  overflow:hidden; display:flex; flex-direction:column;
-  position:relative; flex-shrink:0; width:calc(50% - 10px);
-  transition:box-shadow .3s, border-color .3s;
-}
-.product-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:#6B48FF; transform:scaleX(0); transform-origin:left; transition:transform .45s; z-index:1; }
-.product-card:hover { box-shadow:0 8px 36px rgba(107,72,255,.1); border-color:rgba(107,72,255,.2); }
-.product-card:hover::before { transform:scaleX(1); }
-.product-img-wrap { width:100%; aspect-ratio:16/9; overflow:hidden; background:var(--dark2); position:relative; flex-shrink:0; }
-.product-img-wrap img { width:100%; height:100%; object-fit:cover; opacity:.85; transition:transform .5s, opacity .3s; }
-.product-card:hover .product-img-wrap img { transform:scale(1.04); opacity:1; }
-.product-img-ph { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; }
-.product-img-ph svg { width:50px; height:50px; color:#6B48FF; opacity:.28; }
-.product-img-ph span { font-family:'Barlow Condensed',sans-serif; font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:rgba(255,255,255,.22); }
-.product-body { padding:28px; flex:1; display:flex; flex-direction:column; }
-.product-num { font-family:'Barlow Condensed',sans-serif; font-size:2.2rem; font-weight:900; color:rgba(107,72,255,.1); line-height:1; margin-bottom:10px; }
-.product-name { font-family:'Barlow Condensed',sans-serif; font-size:1.3rem; font-weight:800; text-transform:uppercase; letter-spacing:.04em; color:var(--text); margin-bottom:9px; }
-.product-desc { font-size:.875rem; color:var(--muted); line-height:1.75; margin-bottom:18px; flex:1; }
-.product-tags { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:20px; }
-.tag { font-family:'Barlow Condensed',sans-serif; font-size:10px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:4px 10px; border:1px solid rgba(107,72,255,.25); color:#6B48FF; background:rgba(107,72,255,.05); }
-.product-cta { font-family:'Barlow Condensed',sans-serif; font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#6B48FF; text-decoration:none; display:inline-flex; align-items:center; gap:6px; transition:gap .2s; }
-.product-cta:hover { gap:10px; }
-.product-cta svg { width:14px; height:14px; }
+      /* ─── PRODUCT CAROUSEL ─── */
+      #products {
+        background: var(--off-white);
+        border-top: 1px solid var(--border);
+        padding: 100px 5vw;
+      }
+      .products-header {
+        margin-bottom: 48px;
+      }
+      .carousel-wrap {
+        position: relative;
+      }
+      .carousel-track-outer {
+        overflow: hidden;
+      }
+      .carousel-track {
+        display: flex;
+        gap: 20px;
+        transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .product-card {
+        background: var(--white);
+        border: 1px solid var(--border);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        flex-shrink: 0;
+        width: calc(50% - 10px);
+        transition:
+          box-shadow 0.3s,
+          border-color 0.3s;
+      }
+      .product-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: #6b48ff;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.45s;
+        z-index: 1;
+      }
+      .product-card:hover {
+        box-shadow: 0 8px 36px rgba(107, 72, 255, 0.1);
+        border-color: rgba(107, 72, 255, 0.2);
+      }
+      .product-card:hover::before {
+        transform: scaleX(1);
+      }
+      .product-img-wrap {
+        width: 100%;
+        aspect-ratio: 16/9;
+        overflow: hidden;
+        background: var(--dark2);
+        position: relative;
+        flex-shrink: 0;
+      }
+      .product-img-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.85;
+        transition:
+          transform 0.5s,
+          opacity 0.3s;
+      }
+      .product-card:hover .product-img-wrap img {
+        transform: scale(1.04);
+        opacity: 1;
+      }
+      .product-img-ph {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+      }
+      .product-img-ph svg {
+        width: 50px;
+        height: 50px;
+        color: #6b48ff;
+        opacity: 0.28;
+      }
+      .product-img-ph span {
+        font-family: "Barlow Condensed", sans-serif;
+        font-size: 10px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.22);
+      }
+      .product-body {
+        padding: 28px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+      .product-num {
+        font-family: "Barlow Condensed", sans-serif;
+        font-size: 2.2rem;
+        font-weight: 900;
+        color: rgba(107, 72, 255, 0.1);
+        line-height: 1;
+        margin-bottom: 10px;
+      }
+      .product-name {
+        font-family: "Barlow Condensed", sans-serif;
+        font-size: 1.3rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: var(--text);
+        margin-bottom: 9px;
+      }
+      .product-desc {
+        font-size: 0.875rem;
+        color: var(--muted);
+        line-height: 1.75;
+        margin-bottom: 18px;
+        flex: 1;
+      }
+      .product-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-bottom: 20px;
+      }
+      .tag {
+        font-family: "Barlow Condensed", sans-serif;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 4px 10px;
+        border: 1px solid rgba(107, 72, 255, 0.25);
+        color: #6b48ff;
+        background: rgba(107, 72, 255, 0.05);
+      }
+      .product-cta {
+        font-family: "Barlow Condensed", sans-serif;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: #6b48ff;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        transition: gap 0.2s;
+      }
+      .product-cta:hover {
+        gap: 10px;
+      }
+      .product-cta svg {
+        width: 14px;
+        height: 14px;
+      }
 
-.carousel-controls { display:flex; align-items:center; gap:12px; margin-top:28px; justify-content:center; }
-.carousel-btn { width:40px; height:40px; border:1px solid var(--border-brand); background:transparent; color:#6B48FF; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background .2s, color .2s; }
-.carousel-btn:hover { background:#6B48FF; color:#fff; }
-.carousel-btn svg { width:18px; height:18px; }
-.carousel-dots { display:flex; gap:8px; }
-.carousel-dot { width:8px; height:8px; border-radius:50%; background:rgba(107,72,255,.2); border:none; cursor:pointer; transition:background .2s, transform .2s; padding:0; }
-.carousel-dot.active { background:#6B48FF; transform:scale(1.3); }
+      .carousel-controls {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-top: 28px;
+        justify-content: center;
+      }
+      .carousel-btn {
+        width: 40px;
+        height: 40px;
+        border: 1px solid var(--border-brand);
+        background: transparent;
+        color: #6b48ff;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition:
+          background 0.2s,
+          color 0.2s;
+      }
+      .carousel-btn:hover {
+        background: #6b48ff;
+        color: #fff;
+      }
+      .carousel-btn svg {
+        width: 18px;
+        height: 18px;
+      }
+      .carousel-dots {
+        display: flex;
+        gap: 8px;
+      }
+      .carousel-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: rgba(107, 72, 255, 0.2);
+        border: none;
+        cursor: pointer;
+        transition:
+          background 0.2s,
+          transform 0.2s;
+        padding: 0;
+      }
+      .carousel-dot.active {
+        background: #6b48ff;
+        transform: scale(1.3);
+      }
 
-/* ─── SCENARIOS ─── */
-#scenarios { background:var(--white); border-top:1px solid var(--border); padding:100px 5vw; }
-.scenarios-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:52px; }
-.scenario-card { position:relative; overflow:hidden; aspect-ratio:4/3; background:var(--dark2); }
-.scenario-photo { width:100%; height:100%; object-fit:cover; opacity:.72; transition:transform .5s, opacity .4s; }
-.scenario-card:hover .scenario-photo { transform:scale(1.04); opacity:.88; }
-.scenario-overlay { position:absolute; inset:0; background:linear-gradient(to top,rgba(8,8,15,.82) 0%,transparent 60%); }
-.scenario-label { position:absolute; bottom:20px; left:22px; font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:1.05rem; text-transform:uppercase; letter-spacing:.06em; color:#fff; }
-.scenario-sub { position:absolute; bottom:8px; left:22px; font-size:.78rem; color:rgba(255,255,255,.45); }
-.scenario-ph { width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; }
-.scenario-ph svg { width:40px; height:40px; color:rgba(255,255,255,.14); }
-.scenario-ph span { font-family:'Barlow Condensed',sans-serif; font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:rgba(255,255,255,.18); }
-.scenario-badge { position:absolute; top:14px; right:14px; font-family:'Barlow Condensed',sans-serif; font-size:10px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:#fff; background:rgba(107,72,255,.7); backdrop-filter:blur(4px); padding:3px 9px; }
+      /* ─── SCENARIOS ─── */
+      #scenarios {
+        background: var(--white);
+        border-top: 1px solid var(--border);
+        padding: 100px 5vw;
+      }
+      .scenarios-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+        margin-top: 52px;
+      }
+      .scenario-card {
+        position: relative;
+        overflow: hidden;
+        aspect-ratio: 4/3;
+        background: var(--dark2);
+      }
+      .scenario-photo {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.72;
+        transition:
+          transform 0.5s,
+          opacity 0.4s;
+      }
+      .scenario-card:hover .scenario-photo {
+        transform: scale(1.04);
+        opacity: 0.88;
+      }
+      .scenario-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          rgba(8, 8, 15, 0.82) 0%,
+          transparent 60%
+        );
+      }
+      .scenario-label {
+        position: absolute;
+        bottom: 20px;
+        left: 22px;
+        font-family: "Barlow Condensed", sans-serif;
+        font-weight: 800;
+        font-size: 1.05rem;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: #fff;
+      }
+      .scenario-sub {
+        position: absolute;
+        bottom: 8px;
+        left: 22px;
+        font-size: 0.78rem;
+        color: rgba(255, 255, 255, 0.45);
+      }
+      .scenario-ph {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+      }
+      .scenario-ph svg {
+        width: 40px;
+        height: 40px;
+        color: rgba(255, 255, 255, 0.14);
+      }
+      .scenario-ph span {
+        font-family: "Barlow Condensed", sans-serif;
+        font-size: 10px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.18);
+      }
+      .scenario-badge {
+        position: absolute;
+        top: 14px;
+        right: 14px;
+        font-family: "Barlow Condensed", sans-serif;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: #fff;
+        background: rgba(107, 72, 255, 0.7);
+        backdrop-filter: blur(4px);
+        padding: 3px 9px;
+      }
 
-/* ─── CTA BANNER ─── */
-#cta { background:var(--brand); padding:80px 5vw; display:flex; align-items:center; justify-content:space-between; gap:32px; flex-wrap:wrap; }
-.cta-h2 { font-family:'Barlow Condensed',sans-serif; font-size:clamp(2rem,4vw,3.2rem); font-weight:900; text-transform:uppercase; color:#fff; line-height:.95; }
-.cta-h2 span { opacity:.65; }
+      /* ─── CTA BANNER ─── */
+      #cta {
+        background: var(--brand);
+        padding: 80px 5vw;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 32px;
+        flex-wrap: wrap;
+      }
+      .cta-h2 {
+        font-family: "Barlow Condensed", sans-serif;
+        font-size: clamp(2rem, 4vw, 3.2rem);
+        font-weight: 900;
+        text-transform: uppercase;
+        color: #fff;
+        line-height: 0.95;
+      }
+      .cta-h2 span {
+        opacity: 0.65;
+      }
 
-/* ─── RESPONSIVE ─── */
-@media(max-width:1020px){
-  .feat-panel.active { grid-template-columns:1fr 1fr; }
-  .product-card { width:calc(80% - 10px); }
-  .scenarios-grid { grid-template-columns:1fr 1fr; }
-}
-@media(max-width:720px){
-  .feat-panel.active { grid-template-columns:1fr; }
-  .product-card { width:calc(92% - 10px); }
-  .scenarios-grid { grid-template-columns:1fr; }
-  #cta { flex-direction:column; }
-}
-</style>
-</head>
-<body>
+      /* ─── RESPONSIVE ─── */
+      @media (max-width: 1020px) {
+        .feat-panel.active {
+          grid-template-columns: 1fr 1fr;
+        }
+        .product-card {
+          width: calc(80% - 10px);
+        }
+        .scenarios-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (max-width: 720px) {
+        .feat-panel.active {
+          grid-template-columns: 1fr;
+        }
+        .product-card {
+          width: calc(92% - 10px);
+        }
+        .scenarios-grid {
+          grid-template-columns: 1fr;
+        }
+        #cta {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav>
+      <a href="index.html" class="nav-logo">
+        <img
+          src="logo-07.png"
+          alt="PANDAG"
+          onerror="
+            this.style.display = 'none';
+            this.nextElementSibling.style.display = 'block';
+          "
+        />
+        <span class="nav-logo-text">PANDAG</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul>
+    </nav>
 
-<!-- NAV -->
-<nav>
-  <a href="index.html" class="nav-logo">
-    <img src="logo-07.png" alt="PANDAG" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-    <span class="nav-logo-text">PANDAG</span>
-  </a>
-  <ul class="nav-links">
-    <li><a href="index.html" class="active">Home</a></li>
-    <li><a href="products.html">Products</a></li>
-    <li><a href="contact.html">Contact Us</a></li>
-    <li><a href="about.html">About Us</a></li>
-  </ul>
-</nav>
+    <!-- ═══ HERO SLIDESHOW ═══ -->
+    <section id="home">
+      <div class="hero-slides" id="heroSlides">
+        <!-- Slide 1: Wood Chipper -->
+        <div class="hero-slide active">
+          <div class="hero-slide-bg">
+            <img src="images/4.png" alt="High-Power Wood Chipper" />
+          </div>
+          <div class="hero-overlay"></div>
+          <div class="hero-slide-content">
+            <div class="hero-text">
+              <div class="hero-eyebrow">
+                <span class="pulse"></span> Professional Wood Processing
+              </div>
+              <h1 class="hero-h1">
+                High-Power<br /><em>Wood</em><br />Chipper
+              </h1>
+              <p class="hero-sub">
+                Process branches and wood waste in seconds. Built for
+                landscaping crews, farms and forestry operations that demand
+                throughput.
+              </p>
+              <div class="hero-btns">
+                <a href="products.html" class="btn-primary"
+                  >Explore Wood Chipper</a
+                >
+                <a href="contact.html" class="btn-ghost">Get a Quote</a>
+              </div>
+            </div>
+          </div>
+        </div>
 
-<!-- ═══ HERO SLIDESHOW ═══ -->
-<section id="home">
-  <div class="hero-slides" id="heroSlides">
+        <!-- Slide 2: Robotic Mower -->
+        <div class="hero-slide">
+          <div class="hero-slide-bg">
+            <img src="images/2.png" alt="Intelligent Robotic Mowing" />
+          </div>
+          <div class="hero-overlay"></div>
+          <div class="hero-slide-content">
+            <div class="hero-text">
+              <div class="hero-eyebrow">
+                <span class="pulse"></span> Autonomous Commercial Robotic Mower
+              </div>
+              <h1 class="hero-h1">
+                Intelligent<br /><em>Robotic</em><br />Mowing
+              </h1>
+              <p class="hero-sub">
+                PANDAG G1 — fully autonomous commercial mower built for
+                large-scale turf. AI-guided. All-weather. Zero-operator.
+              </p>
+              <div class="hero-btns">
+                <a href="products.html" class="btn-primary">Explore the G1</a>
+                <a href="contact.html" class="btn-ghost">Get a Quote</a>
+              </div>
+            </div>
+          </div>
+        </div>
 
-    <!-- Slide 1: Wood Chipper -->
-    <div class="hero-slide active">
-      <div class="hero-slide-bg">
-        <img src="hero-chipper.jpg" alt="" onerror="this.style.display='none'">
-        <div class="hero-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>hero-chipper.jpg</span></div>
-      </div>
-      <div class="hero-overlay"></div>
-      <div class="hero-slide-content">
-        <div class="hero-text">
-          <div class="hero-eyebrow"><span class="pulse"></span> Professional Wood Processing</div>
-          <h1 class="hero-h1">High-Power<br><em>Wood</em><br>Chipper</h1>
-          <p class="hero-sub">Process branches and wood waste in seconds. Built for landscaping crews, farms and forestry operations that demand throughput.</p>
-          <div class="hero-btns">
-            <a href="products.html" class="btn-primary">Explore Wood Chipper</a>
-            <a href="contact.html" class="btn-ghost">Get a Quote</a>
+        <!-- Slide 3: Log Splitter -->
+        <div class="hero-slide">
+          <div class="hero-slide-bg">
+            <img src="images/3.jpg" alt="Hydraulic Log Splitter" />
+          </div>
+          <div class="hero-overlay"></div>
+          <div class="hero-slide-content">
+            <div class="hero-text">
+              <div class="hero-eyebrow">
+                <span class="pulse"></span> Hydraulic Log Splitter
+              </div>
+              <h1 class="hero-h1">
+                Split Logs<br /><em>Effortlessly</em><br />Every Time
+              </h1>
+              <p class="hero-sub">
+                Hydraulic-driven force handles large-diameter logs with ease.
+                Safety interlock and compact design, ready for residential and
+                commercial use.
+              </p>
+              <div class="hero-btns">
+                <a href="products.html" class="btn-primary"
+                  >Explore Log Splitter</a
+                >
+                <a href="contact.html" class="btn-ghost">Get a Quote</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 4: Tracked Carrier -->
+        <div class="hero-slide">
+          <div class="hero-slide-bg">
+            <img src="images/1.png" alt="Full-Terrain Tracked Carrier" />
+          </div>
+          <div class="hero-overlay"></div>
+          <div class="hero-slide-content">
+            <div class="hero-text">
+              <div class="hero-eyebrow">
+                <span class="pulse"></span> Full-Terrain Tracked Carrier
+              </div>
+              <h1 class="hero-h1">
+                Carry More.<br /><em>Go Further.</em><br />No Limits.
+              </h1>
+              <p class="hero-sub">
+                Rubber track chassis built for hillsides, mud and rough terrain
+                — where wheeled vehicles simply cannot go.
+              </p>
+              <div class="hero-btns">
+                <a href="products.html" class="btn-primary"
+                  >Explore Tracked Carrier</a
+                >
+                <a href="contact.html" class="btn-ghost">Get a Quote</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 5: Hedge Trimmer -->
+        <div class="hero-slide">
+          <div class="hero-slide-bg">
+            <img src="images/5.png" alt="Professional Hedge Trimmer" />
+          </div>
+          <div class="hero-overlay"></div>
+          <div class="hero-slide-content">
+            <div class="hero-text">
+              <div class="hero-eyebrow">
+                <span class="pulse"></span> Professional Hedge Trimmer
+              </div>
+              <h1 class="hero-h1">
+                Trim, Shape<br /><em>&amp; Define</em><br />Any Boundary.
+              </h1>
+              <p class="hero-sub">
+                Pure electric power. High-capacity tipping for quarries, farms
+                and construction sites.
+              </p>
+              <div class="hero-btns">
+                <a href="products.html" class="btn-primary"
+                  >Explore Hedge Trimmer</a
+                >
+                <a href="contact.html" class="btn-ghost">Get a Quote</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+      <!-- /slides -->
 
-    <!-- Slide 2: Robotic Mower -->
-    <div class="hero-slide">
-      <div class="hero-slide-bg">
-        <img src="hero-mower.jpg" alt="" onerror="this.style.display='none'">
-        <div class="hero-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>hero-mower.jpg</span></div>
+      <button
+        class="hero-arrow hero-arrow-left"
+        id="heroPrev"
+        aria-label="Previous"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <polyline points="15 18 9 12 15 6" />
+        </svg>
+      </button>
+      <button
+        class="hero-arrow hero-arrow-right"
+        id="heroNext"
+        aria-label="Next"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <polyline points="9 18 15 12 9 6" />
+        </svg>
+      </button>
+      <div class="hero-dots" id="heroDots"></div>
+    </section>
+
+    <!-- ═══ PRODUCT FEATURES TABS ═══ -->
+    <section id="features">
+      <div class="fade-up" style="text-align: center; margin-bottom: 0">
+        <div class="section-tag">Product Highlights</div>
+        <h2 class="section-h2">What Sets Each Machine Apart</h2>
       </div>
-      <div class="hero-overlay"></div>
-      <div class="hero-slide-content">
-        <div class="hero-text">
-          <div class="hero-eyebrow"><span class="pulse"></span> Autonomous Commercial Robotic Mower</div>
-          <h1 class="hero-h1">Intelligent<br><em>Robotic</em><br>Mowing</h1>
-          <p class="hero-sub">PANDAG G1 — fully autonomous commercial mower built for large-scale turf. AI-guided. All-weather. Zero-operator.</p>
-          <div class="hero-btns">
-            <a href="products.html" class="btn-primary">Explore the G1</a>
-            <a href="contact.html" class="btn-ghost">Get a Quote</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Slide 3: Log Splitter -->
-    <div class="hero-slide">
-      <div class="hero-slide-bg">
-        <img src="hero-splitter.jpg" alt="" onerror="this.style.display='none'">
-        <div class="hero-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>hero-splitter.jpg</span></div>
-      </div>
-      <div class="hero-overlay"></div>
-      <div class="hero-slide-content">
-        <div class="hero-text">
-          <div class="hero-eyebrow"><span class="pulse"></span> Hydraulic Log Splitter</div>
-          <h1 class="hero-h1">Split Logs<br><em>Effortlessly</em><br>Every Time</h1>
-          <p class="hero-sub">Hydraulic-driven force handles large-diameter logs with ease. Safety interlock and compact design, ready for residential and commercial use.</p>
-          <div class="hero-btns">
-            <a href="products.html" class="btn-primary">Explore Log Splitter</a>
-            <a href="contact.html" class="btn-ghost">Get a Quote</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Slide 4: Tracked Carrier -->
-    <div class="hero-slide">
-      <div class="hero-slide-bg">
-        <img src="hero-carrier.jpg" alt="" onerror="this.style.display='none'">
-        <div class="hero-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>hero-carrier.jpg</span></div>
-      </div>
-      <div class="hero-overlay"></div>
-      <div class="hero-slide-content">
-        <div class="hero-text">
-          <div class="hero-eyebrow"><span class="pulse"></span> Full-Terrain Tracked Carrier</div>
-          <h1 class="hero-h1">Carry More.<br><em>Go Further.</em><br>No Limits.</h1>
-          <p class="hero-sub">Rubber track chassis built for hillsides, mud and rough terrain — where wheeled vehicles simply cannot go.</p>
-          <div class="hero-btns">
-            <a href="products.html" class="btn-primary">Explore Tracked Carrier</a>
-            <a href="contact.html" class="btn-ghost">Get a Quote</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Slide 5: Tipper Truck -->
-    <div class="hero-slide">
-      <div class="hero-slide-bg">
-        <img src="hero-tipper.jpg" alt="" onerror="this.style.display='none'">
-        <div class="hero-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>hero-tipper.jpg</span></div>
-      </div>
-      <div class="hero-overlay"></div>
-      <div class="hero-slide-content">
-        <div class="hero-text">
-          <div class="hero-eyebrow"><span class="pulse"></span> Electric Tipper Truck</div>
-          <h1 class="hero-h1">Dump, Haul<br><em>&amp; Conquer</em><br>Any Site.</h1>
-          <p class="hero-sub">Pure electric power. High-capacity tipping for quarries, farms and construction sites.</p>
-          <div class="hero-btns">
-            <a href="products.html" class="btn-primary">Explore Tipper Truck</a>
-            <a href="contact.html" class="btn-ghost">Get a Quote</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div><!-- /slides -->
-
-  <button class="hero-arrow hero-arrow-left" id="heroPrev" aria-label="Previous">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-  </button>
-  <button class="hero-arrow hero-arrow-right" id="heroNext" aria-label="Next">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-  </button>
-  <div class="hero-dots" id="heroDots"></div>
-</section>
-
-<!-- ═══ PRODUCT FEATURES TABS ═══ -->
-<section id="features">
-  <div class="fade-up" style="text-align:center; margin-bottom:0;">
-    <div class="section-tag">Product Highlights</div>
-    <h2 class="section-h2">What Sets Each Machine Apart</h2>
-  </div>
-  <div class="fade-up">
-    <div class="feat-tabs" style="margin-top:32px;">
-      <button class="feat-tab active" onclick="switchTab(this,'tab-mower')">Robotic Mower</button>
-      <button class="feat-tab" onclick="switchTab(this,'tab-chipper')">Wood Chipper</button>
-      <button class="feat-tab" onclick="switchTab(this,'tab-splitter')">Log Splitter</button>
-      <button class="feat-tab" onclick="switchTab(this,'tab-carrier')">Tracked Carrier</button>
-      <button class="feat-tab" onclick="switchTab(this,'tab-tipper')">Tipper Truck</button>
-    </div>
-
-    <!-- Mower -->
-    <div id="tab-mower" class="feat-panel active">
-      <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg></div><div class="feat-title">RTK / 4G Navigation</div><div class="feat-desc">Centimeter-level RTK navigation keeps each pass accurately aligned and eliminates any overlaps across large areas.</div></div>
-      <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12l18 0M3 6l18 0M3 18l18 0"/></svg></div><div class="feat-title">Automatic Path Planning</div><div class="feat-desc">Smart algorithms automatically plan and optimize mowing routes for efficient coverage of large scale sites.</div></div>
-      <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6l11 6 11-6M1 12l11 6 11-6"/></svg></div><div class="feat-title">AI-Vision Obstacle</div><div class="feat-desc">UltraSense™ AI vision detects people, animals and equipment in real time for safe autonomous operation.</div></div>
-      <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><div class="feat-title">Auto Recharge</div><div class="feat-desc">Automatically returns to the charging dock, recharges and seamlessly resumes mowing from the exact previous location.</div></div>
-      <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><div class="feat-title">Multi-Zone Management</div><div class="feat-desc">Easily store and switch between 100+ field maps, supporting multiple sites and operational zones with one machine.</div></div>
-      <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></div><div class="feat-title">App Fleet Service</div><div class="feat-desc">Monitor, schedule and control multiple units in real time from a single, convenient mobile platform.</div></div>
-    </div>
-
-    <!-- Chipper -->
-    <div id="tab-chipper" class="feat-panel">
-      <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div><div class="feat-title">High-Speed Dual Blades</div><div class="feat-desc">Counter-rotating hardened steel blades spin at high RPM to chip branches up to 100mm diameter into uniform mulch in seconds.</div></div>
-      <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div><div class="feat-title">Auto Feed Control</div><div class="feat-desc">Intelligent feed-roller speed adjusts automatically to material thickness — prevents jamming and maintains consistent throughput without operator adjustment.</div></div>
-      <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="feat-title">Safety Auto-Stop</div><div class="feat-desc">Reverse-feed emergency stop activates instantly if an obstruction or unsafe condition is detected — protecting the operator and the machine.</div></div>
-      <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div><div class="feat-title">Low Noise Motor</div><div class="feat-desc">Optimised blade geometry and vibration-damped housing reduce operating noise to levels suitable for residential neighbourhoods and noise-sensitive sites.</div></div>
-      <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div><div class="feat-title">Tow-Behind Design</div><div class="feat-desc">Standard tow hitch attaches to any farm vehicle or tractor for easy repositioning across large sites without manual carrying.</div></div>
-      <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="1"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div><div class="feat-title">Large Capacity Collection</div><div class="feat-desc">Wide-mouth discharge chute directs chips into a collection bag or trailer. Minimise ground mess and make clean-up part of the chipping workflow.</div></div>
-    </div>
-
-    <!-- Splitter -->
-    <div id="tab-splitter" class="feat-panel">
-      <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 3a3 3 0 00-3 3v12a3 3 0 003 3 3 3 0 003-3 3 3 0 00-3-3H6a3 3 0 00-3 3 3 3 0 003 3 3 3 0 003-3V6a3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3h12a3 3 0 003-3 3 3 0 00-3-3z"/></svg></div><div class="feat-title">High-Force Hydraulic Cylinder</div><div class="feat-desc">Precision hydraulic ram delivers powerful, consistent splitting force through even the most gnarled hardwood — no stalling, no partial splits.</div></div>
-      <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="feat-title">Two-Hand Safety Interlock</div><div class="feat-desc">Both control levers must be engaged simultaneously to activate the ram — a certified safety design that prevents single-hand or accidental operation.</div></div>
-      <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 014-4h14M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg></div><div class="feat-title">Horizontal & Vertical Modes</div><div class="feat-desc">Convert between horizontal and vertical splitting positions in seconds — horizontal for speed, vertical for heavy rounds too large to lift onto the beam.</div></div>
-      <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="1"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div><div class="feat-title">Towable Frame</div><div class="feat-desc">Road-legal tow hitch and fold-down log cradle mean the splitter travels with you — from woodlot to barn to storage without a trailer.</div></div>
-      <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div><div class="feat-title">Fast Cycle Time</div><div class="feat-desc">Rapid-return hydraulic valve minimises dead time between strokes — keeping throughput high for commercial firewood and timber operations.</div></div>
-      <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z"/><path d="M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/><path d="M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z"/><path d="M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z"/><path d="M14 14.5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5z"/><path d="M15.5 19H14v1.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z"/><path d="M10 9.5C10 8.67 9.33 8 8.5 8h-5C2.67 8 2 8.67 2 9.5S2.67 11 3.5 11h5c.83 0 1.5-.67 1.5-1.5z"/><path d="M8.5 5H10V3.5C10 2.67 9.33 2 8.5 2S7 2.67 7 3.5 7.67 5 8.5 5z"/></svg></div><div class="feat-title">Wide Log Capacity</div><div class="feat-desc">Extended beam and wide wedge design accommodates logs up to 500mm in diameter — handles the big rounds other splitters struggle with.</div></div>
-    </div>
-
-    <!-- Carrier -->
-    <div id="tab-carrier" class="feat-panel">
-      <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="1"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div><div class="feat-title">Wide Rubber Tracks</div><div class="feat-desc">Low ground-pressure rubber tracks spread load evenly — preventing soil compaction on sensitive agricultural land while maintaining grip on mud, gravel and steep hillsides.</div></div>
-      <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div class="feat-title">Steep-Grade Climbing</div><div class="feat-desc">Differential track drive and low centre of gravity allow the carrier to ascend and descend grades that wheeled vehicles cannot safely negotiate.</div></div>
-      <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg></div><div class="feat-title">High-Capacity Flat Bed</div><div class="feat-desc">Reinforced steel platform handles heavy bulk loads — from harvested produce and timber to construction materials and machinery parts.</div></div>
-      <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></div><div class="feat-title">Optional Remote Control</div><div class="feat-desc">Wireless remote operation keeps the operator at a safe distance on unstable slopes, near hazardous material or in confined spaces where riding is dangerous.</div></div>
-      <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="feat-title">Anti-Rollover Stability</div><div class="feat-desc">Active stability monitoring and wide track stance prevent tipping during cornering and side-hill traversing — critical for safe hillside operation.</div></div>
-      <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><div class="feat-title">Electric Drive System</div><div class="feat-desc">Zero-emission electric motors provide instant torque, low maintenance and quiet operation — suitable for use inside greenhouses, livestock buildings and noise-restricted areas.</div></div>
-    </div>
-
-    <!-- Tipper -->
-    <div id="tab-tipper" class="feat-panel">
-      <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 014-4h14M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg></div><div class="feat-title">Hydraulic Tipping Bed</div><div class="feat-desc">Single-switch hydraulic ram raises the tipping bed to full angle in seconds — rapid unloading of soil, aggregate, grain and green waste with no manual handling.</div></div>
-      <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><div class="feat-title">Pure Electric Powertrain</div><div class="feat-desc">High-capacity battery pack delivers full-day runtime on a single charge. Zero emissions — approved for indoor warehouses, covered markets and emission-controlled zones.</div></div>
-      <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="1"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div><div class="feat-title">High-Payload Capacity</div><div class="feat-desc">Reinforced chassis and dump box engineered for heavy commercial loads — move more per trip and reduce total journey time on site.</div></div>
-      <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></div><div class="feat-title">Smart Dashboard</div><div class="feat-desc">Digital instrument cluster shows battery level, payload weight, tipping angle and fault alerts — giving the operator complete situational awareness at a glance.</div></div>
-      <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="feat-title">Rollover Protection</div><div class="feat-desc">Full ROPS-compliant cab frame and tipping-lock safety pin prevent accidental bed drop and protect the operator under any operating condition.</div></div>
-      <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div class="feat-title">Compact Site Maneuverability</div><div class="feat-desc">Short turning radius and compact dimensions allow the tipper to navigate tight construction corridors, barn aisles and urban delivery zones with ease.</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ PRODUCT CAROUSEL ═══ -->
-<section id="products">
-  <div class="products-header fade-up">
-    <div class="section-tag">Product Range</div>
-    <h2 class="section-h2">Built for Every<br><em>Outdoor Challenge</em></h2>
-    <p class="section-desc">Five product lines. One shared commitment to performance, reliability and precision engineering. <a href="products.html" style="color:#6B48FF;font-weight:600;">View all products →</a></p>
-  </div>
-  <div class="carousel-wrap fade-up">
-    <div class="carousel-track-outer">
-      <div class="carousel-track" id="productTrack">
-
-        <div class="product-card">
-          <div class="product-img-wrap"><img src="product-mower.jpg" alt="Robotic Mower" onerror="this.style.display='none'"><div class="product-img-ph"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="36" r="5"/><circle cx="36" cy="36" r="5"/><path d="M7 36H4V28L10 16h28l6 12v8h-3"/><path d="M17 36h14"/><path d="M10 16l4-8h20"/><circle cx="24" cy="20" r="4"/></svg><span>product-mower.jpg</span></div></div>
-          <div class="product-body">
-            <div class="product-num">01</div>
-            <div class="product-name">Robotic Lawn Mower</div>
-            <div class="product-desc">Fully autonomous commercial mowing with AI path planning, multi-zone scheduling and auto-return charging. Handles estates, solar farms, golf courses and steep slopes.</div>
-            <div class="product-tags"><span class="tag">RTK Navigation</span><span class="tag">AI Detection</span><span class="tag">Auto Charge</span><span class="tag">IPX5</span></div>
-            <a href="products.html" class="product-cta">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-          </div>
+      <div class="fade-up">
+        <div class="feat-tabs" style="margin-top: 32px">
+          <button
+            class="feat-tab active"
+            onclick="switchTab(this, 'tab-mower')"
+          >
+            Robotic Mower
+          </button>
+          <button class="feat-tab" onclick="switchTab(this, 'tab-chipper')">
+            Wood Chipper
+          </button>
+          <button class="feat-tab" onclick="switchTab(this, 'tab-splitter')">
+            Log Splitter
+          </button>
+          <button class="feat-tab" onclick="switchTab(this, 'tab-carrier')">
+            Tracked Carrier
+          </button>
+          <button class="feat-tab" onclick="switchTab(this, 'tab-tipper')">
+            Hedge Trimmer
+          </button>
         </div>
 
-        <div class="product-card">
-          <div class="product-img-wrap"><img src="product-chipper.jpg" alt="Wood Chipper" onerror="this.style.display='none'"><div class="product-img-ph"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="14" width="36" height="22" rx="2"/><path d="M14 14V10q0-4 4-4h12q4 0 4 4v4"/><path d="M18 25h12M24 20v10"/><circle cx="10" cy="38" r="3"/><circle cx="38" cy="38" r="3"/></svg><span>product-chipper.jpg</span></div></div>
-          <div class="product-body">
-            <div class="product-num">02</div>
-            <div class="product-name">Wood Chipper</div>
-            <div class="product-desc">High-speed dual-blade system processes branches and wood waste into uniform chips. Auto feed control and safety auto-stop for efficient, safe field operation.</div>
-            <div class="product-tags"><span class="tag">High Throughput</span><span class="tag">Auto Feed</span><span class="tag">Low Noise</span><span class="tag">Tow-Behind</span></div>
-            <a href="products.html" class="product-cta">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <!-- Mower -->
+        <div id="tab-mower" class="feat-panel active">
+          <div class="feat-card">
+            <div class="feat-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="12" r="3" />
+                <path
+                  d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"
+                />
+              </svg>
+            </div>
+            <div class="feat-title">RTK / 4G Navigation</div>
+            <div class="feat-desc">
+              Centimeter-level RTK navigation keeps each pass accurately aligned
+              and eliminates any overlaps across large areas.
+            </div>
+          </div>
+          <div class="feat-card">
+            <div class="feat-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M3 12l18 0M3 6l18 0M3 18l18 0" />
+              </svg>
+            </div>
+            <div class="feat-title">Automatic Path Planning</div>
+            <div class="feat-desc">
+              Smart algorithms automatically plan and optimize mowing routes for
+              efficient coverage of large scale sites.
+            </div>
+          </div>
+          <div class="feat-card">
+            <div class="feat-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M1 6l11 6 11-6M1 12l11 6 11-6" />
+              </svg>
+            </div>
+            <div class="feat-title">AI-Vision Obstacle</div>
+            <div class="feat-desc">
+              UltraSense™ AI vision detects people, animals and equipment in
+              real time for safe autonomous operation.
+            </div>
+          </div>
+          <div class="feat-card">
+            <div class="feat-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+              </svg>
+            </div>
+            <div class="feat-title">Auto Recharge</div>
+            <div class="feat-desc">
+              Automatically returns to the charging dock, recharges and
+              seamlessly resumes mowing from the exact previous location.
+            </div>
+          </div>
+          <div class="feat-card">
+            <div class="feat-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="2" y="3" width="20" height="14" rx="2" />
+                <path d="M8 21h8M12 17v4" />
+              </svg>
+            </div>
+            <div class="feat-title">Multi-Zone Management</div>
+            <div class="feat-desc">
+              Easily store and switch between 100+ field maps, supporting
+              multiple sites and operational zones with one machine.
+            </div>
+          </div>
+          <div class="feat-card">
+            <div class="feat-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="5" y="2" width="14" height="20" rx="2" />
+                <path d="M12 18h.01" />
+              </svg>
+            </div>
+            <div class="feat-title">App Fleet Service</div>
+            <div class="feat-desc">
+              Monitor, schedule and control multiple units in real time from a
+              single, convenient mobile platform.
+            </div>
           </div>
         </div>
 
-        <div class="product-card">
-          <div class="product-img-wrap"><img src="product-splitter.jpg" alt="Log Splitter" onerror="this.style.display='none'"><div class="product-img-ph"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M24 6L38 20H30v22H18V20H10Z"/><path d="M14 30H8M34 30h6"/></svg><span>product-splitter.jpg</span></div></div>
-          <div class="product-body">
-            <div class="product-num">03</div>
-            <div class="product-name">Log Splitter</div>
-            <div class="product-desc">High-force hydraulic cylinder splits large-diameter logs in one stroke. Two-hand safety interlock, horizontal and vertical modes, fast cycle time.</div>
-            <div class="product-tags"><span class="tag">Hydraulic Drive</span><span class="tag">Safety Interlock</span><span class="tag">Dual Mode</span><span class="tag">Towable</span></div>
-            <a href="products.html" class="product-cta">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <!-- Chipper -->
+        <div id="tab-chipper" class="feat-panel">
+          <div class="feat-card">
+            <div class="feat-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 8v4l3 3" />
+              </svg>
+            </div>
+            <div class="feat-title">High-Speed Dual Blades</div>
+            <div class="feat-desc">
+              Counter-rotating hardened steel blades spin at high RPM to chip
+              branches up to 100mm diameter into uniform mulch in seconds.
+            </div>
+          </div>
+          <div class="feat-card">
+            <div class="feat-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
+                <polyline points="22 4 12 14.01 9 11.01" />
+              </svg>
+            </div>
+            <div class="feat-title">Auto Feed Control</div>
+            <div class="feat-desc">
+              Intelligent feed-roller speed adjusts automatically to material
+              thickness — prevents jamming and maintains consistent throughput
+              without operator adjustment.
+            </div>
+          </div>
+          <div class="feat-card">
+            <div class="feat-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg>
+            </div>
+            <div class="feat-title">Safety Auto-Stop</div>
+            <div class="feat-desc">
+              Reverse-feed emergency stop activates instantly if an obstruction
+              or unsafe condition is detected — protecting the operator and the
+              machine.
+            </div>
+          </div>
+          <div class="feat-card">
+            <div class="feat-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"
+                />
+                <line x1="6" y1="1" x2="6" y2="4" />
+                <line x1="10" y1="1" x2="10" y2="4" />
+                <line x1="14" y1="1" x2="14" y2="4" />
+              </svg>
+            </div>
+            <div class="feat-title">Low Noise Motor</div>
+            <div class="feat-desc">
+              Optimised blade geometry and vibration-damped housing reduce
+              operating noise to levels suitable for residential neighbourhoods
+              and noise-sensitive sites.
+            </div>
+          </div>
+          <div class="feat-card">
+            <div class="feat-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <line x1="2" y1="12" x2="22" y2="12" />
+                <path
+                  d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"
+                />
+              </svg>
+            </div>
+            <div class="feat-title">Tow-Behind Design</div>
+            <div class="feat-desc">
+              Standard tow hitch attaches to any farm vehicle or tractor for
+              easy repositioning across large sites without manual carrying.
+            </div>
+          </div>
+          <div class="feat-card">
+            <div class="feat-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="1" y="3" width="15" height="13" rx="1" />
+                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" />
+                <circle cx="5.5" cy="18.5" r="2.5" />
+                <circle cx="18.5" cy="18.5" r="2.5" />
+              </svg>
+            </div>
+            <div class="feat-title">Large Capacity Collection</div>
+            <div class="feat-desc">
+              Wide-mouth discharge chute directs chips into a collection bag or
+              trailer. Minimise ground mess and make clean-up part of the
+              chipping workflow.
+            </div>
           </div>
         </div>
 
-        <div class="product-card">
-          <div class="product-img-wrap"><img src="product-carrier.jpg" alt="Tracked Carrier" onerror="this.style.display='none'"><div class="product-img-ph"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="22" width="36" height="14" rx="2"/><rect x="10" y="13" width="28" height="11" rx="1"/><ellipse cx="11" cy="37" rx="5" ry="3"/><ellipse cx="37" cy="37" rx="5" ry="3"/></svg><span>product-carrier.jpg</span></div></div>
-          <div class="product-body">
-            <div class="product-num">04</div>
-            <div class="product-name">Tracked Carrier</div>
-            <div class="product-desc">Wide rubber tracks conquer hillsides, mud and rough terrain. Optional remote control, anti-rollover stability and high-capacity flat bed for any payload.</div>
-            <div class="product-tags"><span class="tag">All-Terrain</span><span class="tag">Remote Op.</span><span class="tag">Anti-Rollover</span><span class="tag">Electric</span></div>
-            <a href="products.html" class="product-cta">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <!-- Splitter -->
+        <div id="tab-splitter" class="feat-panel">
+          <div class="feat-card">
+            <div class="feat-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M18 3a3 3 0 00-3 3v12a3 3 0 003 3 3 3 0 003-3 3 3 0 00-3-3H6a3 3 0 00-3 3 3 3 0 003 3 3 3 0 003-3V6a3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3h12a3 3 0 003-3 3 3 0 00-3-3z"
+                />
+              </svg>
+            </div>
+            <div class="feat-title">High-Force Hydraulic Cylinder</div>
+            <div class="feat-desc">
+              Precision hydraulic ram delivers powerful, consistent splitting
+              force through even the most gnarled hardwood — no stalling, no
+              partial splits.
+            </div>
+          </div>
+          <div class="feat-card">
+            <div class="feat-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg>
+            </div>
+            <div class="feat-title">Two-Hand Safety Interlock</div>
+            <div class="feat-desc">
+              Both control levers must be engaged simultaneously to activate the
+              ram — a certified safety design that prevents single-hand or
+              accidental operation.
+            </div>
+          </div>
+          <div class="feat-card">
+            <div class="feat-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="17 1 21 5 17 9" />
+                <path d="M3 11V9a4 4 0 014-4h14M7 23l-4-4 4-4" />
+                <path d="M21 13v2a4 4 0 01-4 4H3" />
+              </svg>
+            </div>
+            <div class="feat-title">Horizontal & Vertical Modes</div>
+            <div class="feat-desc">
+              Convert between horizontal and vertical splitting positions in
+              seconds — horizontal for speed, vertical for heavy rounds too
+              large to lift onto the beam.
+            </div>
+          </div>
+          <div class="feat-card">
+            <div class="feat-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="1" y="3" width="15" height="13" rx="1" />
+                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" />
+                <circle cx="5.5" cy="18.5" r="2.5" />
+                <circle cx="18.5" cy="18.5" r="2.5" />
+              </svg>
+            </div>
+            <div class="feat-title">Towable Frame</div>
+            <div class="feat-desc">
+              Road-legal tow hitch and fold-down log cradle mean the splitter
+              travels with you — from woodlot to barn to storage without a
+              trailer.
+            </div>
+          </div>
+          <div class="feat-card">
+            <div class="feat-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 8v4l3 3" />
+              </svg>
+            </div>
+            <div class="feat-title">Fast Cycle Time</div>
+            <div class="feat-desc">
+              Rapid-return hydraulic valve minimises dead time between strokes —
+              keeping throughput high for commercial firewood and timber
+              operations.
+            </div>
+          </div>
+          <div class="feat-card">
+            <div class="feat-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z"
+                />
+                <path
+                  d="M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"
+                />
+                <path
+                  d="M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z"
+                />
+                <path
+                  d="M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z"
+                />
+                <path
+                  d="M14 14.5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5z"
+                />
+                <path
+                  d="M15.5 19H14v1.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z"
+                />
+                <path
+                  d="M10 9.5C10 8.67 9.33 8 8.5 8h-5C2.67 8 2 8.67 2 9.5S2.67 11 3.5 11h5c.83 0 1.5-.67 1.5-1.5z"
+                />
+                <path
+                  d="M8.5 5H10V3.5C10 2.67 9.33 2 8.5 2S7 2.67 7 3.5 7.67 5 8.5 5z"
+                />
+              </svg>
+            </div>
+            <div class="feat-title">Wide Log Capacity</div>
+            <div class="feat-desc">
+              Extended beam and wide wedge design accommodates logs up to 500mm
+              in diameter — handles the big rounds other splitters struggle
+              with.
+            </div>
           </div>
         </div>
 
-        <div class="product-card">
-          <div class="product-img-wrap"><img src="product-tipper.jpg" alt="Tipper Truck" onerror="this.style.display='none'"><div class="product-img-ph"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="28" width="38" height="14" rx="2"/><path d="M28 28V16a2 2 0 00-2-2H10a2 2 0 00-2 2v12"/><circle cx="10" cy="42" r="4"/><circle cx="32" cy="42" r="4"/><path d="M28 20h8l6 8H28"/></svg><span>product-tipper.jpg</span></div></div>
-          <div class="product-body">
-            <div class="product-num">05</div>
-            <div class="product-name">Tipper Truck</div>
-            <div class="product-desc">Electric-powered tipper with hydraulic dump bed. High payload, smart dashboard and compact maneuverability for quarries, farms and construction sites.</div>
-            <div class="product-tags"><span class="tag">Electric</span><span class="tag">Hydraulic Tip</span><span class="tag">Smart Dash</span><span class="tag">ROPS Cab</span></div>
-            <a href="products.html" class="product-cta">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <!-- Carrier -->
+        <div id="tab-carrier" class="feat-panel">
+          <div class="feat-card">
+            <div class="feat-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="1" y="3" width="15" height="13" rx="1" />
+                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" />
+                <circle cx="5.5" cy="18.5" r="2.5" />
+                <circle cx="18.5" cy="18.5" r="2.5" />
+              </svg>
+            </div>
+            <div class="feat-title">Wide Rubber Tracks</div>
+            <div class="feat-desc">
+              Low ground-pressure rubber tracks spread load evenly — preventing
+              soil compaction on sensitive agricultural land while maintaining
+              grip on mud, gravel and steep hillsides.
+            </div>
+          </div>
+          <div class="feat-card">
+            <div class="feat-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+              </svg>
+            </div>
+            <div class="feat-title">Steep-Grade Climbing</div>
+            <div class="feat-desc">
+              Differential track drive and low centre of gravity allow the
+              carrier to ascend and descend grades that wheeled vehicles cannot
+              safely negotiate.
+            </div>
+          </div>
+          <div class="feat-card">
+            <div class="feat-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"
+                />
+              </svg>
+            </div>
+            <div class="feat-title">High-Capacity Flat Bed</div>
+            <div class="feat-desc">
+              Reinforced steel platform handles heavy bulk loads — from
+              harvested produce and timber to construction materials and
+              machinery parts.
+            </div>
+          </div>
+          <div class="feat-card">
+            <div class="feat-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="5" y="2" width="14" height="20" rx="2" />
+                <path d="M12 18h.01" />
+              </svg>
+            </div>
+            <div class="feat-title">Optional Remote Control</div>
+            <div class="feat-desc">
+              Wireless remote operation keeps the operator at a safe distance on
+              unstable slopes, near hazardous material or in confined spaces
+              where riding is dangerous.
+            </div>
+          </div>
+          <div class="feat-card">
+            <div class="feat-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg>
+            </div>
+            <div class="feat-title">Anti-Rollover Stability</div>
+            <div class="feat-desc">
+              Active stability monitoring and wide track stance prevent tipping
+              during cornering and side-hill traversing — critical for safe
+              hillside operation.
+            </div>
+          </div>
+          <div class="feat-card">
+            <div class="feat-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+              </svg>
+            </div>
+            <div class="feat-title">Electric Drive System</div>
+            <div class="feat-desc">
+              Zero-emission electric motors provide instant torque, low
+              maintenance and quiet operation — suitable for use inside
+              greenhouses, livestock buildings and noise-restricted areas.
+            </div>
           </div>
         </div>
 
-      </div>
-    </div>
-    <div class="carousel-controls">
-      <button class="carousel-btn" id="prevBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
-      <div class="carousel-dots" id="carouselDots"></div>
-      <button class="carousel-btn" id="nextBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ SCENARIOS ═══ -->
-<section id="scenarios">
-  <div class="fade-up">
-    <div class="section-tag">Applications</div>
-    <h2 class="section-h2">Designed for the<br><em>Real World</em></h2>
-    <p class="section-desc">PANDAG machinery performs across the widest range of environments — from precision turf to rugged terrain and heavy site work.</p>
-  </div>
-  <div class="scenarios-grid">
-    <div class="scenario-card fade-up"><img class="scenario-photo" src="app-solar.jpg" alt="" onerror="this.style.display='none'"><div class="scenario-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg><span>app-solar.jpg</span></div><div class="scenario-overlay"></div><div class="scenario-badge">Robotic Mower</div><div class="scenario-label">Solar Farms</div><div class="scenario-sub">Autonomous vegetation management</div></div>
-    <div class="scenario-card fade-up"><img class="scenario-photo" src="app-slope.jpg" alt="" onerror="this.style.display='none'"><div class="scenario-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 20L22 4M8 20v-6l6-6h8"/></svg><span>app-slope.jpg</span></div><div class="scenario-overlay"></div><div class="scenario-badge">Robotic Mower</div><div class="scenario-label">Steep Slopes</div><div class="scenario-sub">Up to 35° at 70% grade</div></div>
-    <div class="scenario-card fade-up"><img class="scenario-photo" src="app-golf.jpg" alt="" onerror="this.style.display='none'"><div class="scenario-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 2v20M2 12h20"/></svg><span>app-golf.jpg</span></div><div class="scenario-overlay"></div><div class="scenario-badge">Robotic Mower</div><div class="scenario-label">Golf Courses</div><div class="scenario-sub">Precision turf management</div></div>
-    <div class="scenario-card fade-up"><img class="scenario-photo" src="app-farm.jpg" alt="" onerror="this.style.display='none'"><div class="scenario-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0h6"/></svg><span>app-farm.jpg</span></div><div class="scenario-overlay"></div><div class="scenario-badge">Tracked Carrier · Tipper</div><div class="scenario-label">Agricultural Land</div><div class="scenario-sub">Orchards, vineyards & pastures</div></div>
-    <div class="scenario-card fade-up"><img class="scenario-photo" src="app-forest.jpg" alt="" onerror="this.style.display='none'"><div class="scenario-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L8 8H4l8 10 8-10h-4L12 2z"/></svg><span>app-forest.jpg</span></div><div class="scenario-overlay"></div><div class="scenario-badge">Wood Chipper · Log Splitter</div><div class="scenario-label">Forestry & Timber</div><div class="scenario-sub">Chipping, splitting and processing</div></div>
-    <div class="scenario-card fade-up"><img class="scenario-photo" src="app-construction.jpg" alt="" onerror="this.style.display='none'"><div class="scenario-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="15" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg><span>app-construction.jpg</span></div><div class="scenario-overlay"></div><div class="scenario-badge">Tipper · Tracked Carrier</div><div class="scenario-label">Construction Sites</div><div class="scenario-sub">Haulage and material handling</div></div>
-  </div>
-</section>
-
-<!-- ═══ CTA ═══ -->
-<section id="cta">
-  <div class="fade-up">
-    <h2 class="cta-h2">Find the Right Machine<br><span>for Your Operation</span></h2>
-  </div>
-  <a href="contact.html" class="btn-white fade-up">Get a Quote Today</a>
-</section>
-
-<!-- ═══ FOOTER ═══ -->
-<footer>
-  <div class="footer-nav-simple">
-    <div class="footer-nav-cols">
-      <div>
-        <div class="footer-nav-title">Products</div>
-        <div class="footer-nav-links">
-          <a href="products.html">Robotic Lawn Mower</a>
-          <a href="products.html">Wood Chipper</a>
-          <a href="products.html">Log Splitter</a>
-          <a href="products.html">Tracked Carrier</a>
-          <a href="products.html">Tipper Truck</a>
+        <!-- Tipper -->
+        <div id="tab-tipper" class="feat-panel">
+          <div class="feat-card">
+            <div class="feat-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="17 1 21 5 17 9" />
+                <path d="M3 11V9a4 4 0 014-4h14M7 23l-4-4 4-4" />
+                <path d="M21 13v2a4 4 0 01-4 4H3" />
+              </svg>
+            </div>
+            <div class="feat-title">Hydraulic Tipping Bed</div>
+            <div class="feat-desc">
+              Single-switch hydraulic ram raises the tipping bed to full angle
+              in seconds — rapid unloading of soil, aggregate, grain and green
+              waste with no manual handling.
+            </div>
+          </div>
+          <div class="feat-card">
+            <div class="feat-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+              </svg>
+            </div>
+            <div class="feat-title">Pure Electric Powertrain</div>
+            <div class="feat-desc">
+              High-capacity battery pack delivers full-day runtime on a single
+              charge. Zero emissions — approved for indoor warehouses, covered
+              markets and emission-controlled zones.
+            </div>
+          </div>
+          <div class="feat-card">
+            <div class="feat-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="1" y="3" width="15" height="13" rx="1" />
+                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" />
+                <circle cx="5.5" cy="18.5" r="2.5" />
+                <circle cx="18.5" cy="18.5" r="2.5" />
+              </svg>
+            </div>
+            <div class="feat-title">High-Payload Capacity</div>
+            <div class="feat-desc">
+              Reinforced chassis and dump box engineered for heavy commercial
+              loads — move more per trip and reduce total journey time on site.
+            </div>
+          </div>
+          <div class="feat-card">
+            <div class="feat-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="5" y="2" width="14" height="20" rx="2" />
+                <path d="M12 18h.01" />
+              </svg>
+            </div>
+            <div class="feat-title">Smart Dashboard</div>
+            <div class="feat-desc">
+              Digital instrument cluster shows battery level, payload weight,
+              tipping angle and fault alerts — giving the operator complete
+              situational awareness at a glance.
+            </div>
+          </div>
+          <div class="feat-card">
+            <div class="feat-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg>
+            </div>
+            <div class="feat-title">Rollover Protection</div>
+            <div class="feat-desc">
+              Full ROPS-compliant cab frame and tipping-lock safety pin prevent
+              accidental bed drop and protect the operator under any operating
+              condition.
+            </div>
+          </div>
+          <div class="feat-card">
+            <div class="feat-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+            </div>
+            <div class="feat-title">Compact Site Maneuverability</div>
+            <div class="feat-desc">
+              Short turning radius and compact dimensions allow the tipper to
+              navigate tight construction corridors, barn aisles and urban
+              delivery zones with ease.
+            </div>
+          </div>
         </div>
       </div>
-      <div>
-        <div class="footer-nav-title">Company</div>
-        <div class="footer-nav-links">
-          <a href="about.html">About Us</a>
-          <a href="contact.html">Contact Us</a>
+    </section>
+
+    <!-- ═══ PRODUCT CAROUSEL ═══ -->
+    <section id="products">
+      <div class="products-header fade-up">
+        <div class="section-tag">Product Range</div>
+        <h2 class="section-h2">
+          Built for Every<br /><em>Outdoor Challenge</em>
+        </h2>
+        <p class="section-desc">
+          Five product lines. One shared commitment to performance, reliability
+          and precision engineering.
+          <a href="products.html" style="color: #6b48ff; font-weight: 600"
+            >View all products →</a
+          >
+        </p>
+      </div>
+      <div class="carousel-wrap fade-up">
+        <div class="carousel-track-outer">
+          <div class="carousel-track" id="productTrack">
+            <div class="product-card">
+              <div class="product-img-wrap">
+                <img src="images/6.png" alt="Robotic Mower" />
+              </div>
+              <div class="product-body">
+                <div class="product-num">01</div>
+                <div class="product-name">Robotic Lawn Mower</div>
+                <div class="product-desc">
+                  Fully autonomous commercial mowing with AI path planning,
+                  multi-zone scheduling and auto-return charging. Handles
+                  estates, solar farms, golf courses and steep slopes.
+                </div>
+                <div class="product-tags">
+                  <span class="tag">RTK Navigation</span
+                  ><span class="tag">AI Detection</span
+                  ><span class="tag">Auto Charge</span
+                  ><span class="tag">IPX5</span>
+                </div>
+                <a href="products.html" class="product-cta"
+                  >Learn more
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" /></svg
+                ></a>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div class="product-img-wrap">
+                <img src="images/7.png" alt="Wood Chipper" />
+              </div>
+              <div class="product-body">
+                <div class="product-num">02</div>
+                <div class="product-name">Wood Chipper</div>
+                <div class="product-desc">
+                  High-speed dual-blade system processes branches and wood waste
+                  into uniform chips. Auto feed control and safety auto-stop for
+                  efficient, safe field operation.
+                </div>
+                <div class="product-tags">
+                  <span class="tag">High Throughput</span
+                  ><span class="tag">Auto Feed</span
+                  ><span class="tag">Low Noise</span
+                  ><span class="tag">Tow-Behind</span>
+                </div>
+                <a href="products.html" class="product-cta"
+                  >Learn more
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" /></svg
+                ></a>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div class="product-img-wrap">
+                <img src="images/8.jpg" alt="Log Splitter" />
+              </div>
+              <div class="product-body">
+                <div class="product-num">03</div>
+                <div class="product-name">Log Splitter</div>
+                <div class="product-desc">
+                  High-force hydraulic cylinder splits large-diameter logs in
+                  one stroke. Two-hand safety interlock, horizontal and vertical
+                  modes, fast cycle time.
+                </div>
+                <div class="product-tags">
+                  <span class="tag">Hydraulic Drive</span
+                  ><span class="tag">Safety Interlock</span
+                  ><span class="tag">Dual Mode</span
+                  ><span class="tag">Towable</span>
+                </div>
+                <a href="products.html" class="product-cta"
+                  >Learn more
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" /></svg
+                ></a>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div class="product-img-wrap">
+                <img src="images/9.png" alt="Tracked Carrier" />
+              </div>
+              <div class="product-body">
+                <div class="product-num">04</div>
+                <div class="product-name">Tracked Carrier</div>
+                <div class="product-desc">
+                  Wide rubber tracks conquer hillsides, mud and rough terrain.
+                  Optional remote control, anti-rollover stability and
+                  high-capacity flat bed for any payload.
+                </div>
+                <div class="product-tags">
+                  <span class="tag">All-Terrain</span
+                  ><span class="tag">Remote Op.</span
+                  ><span class="tag">Anti-Rollover</span
+                  ><span class="tag">Electric</span>
+                </div>
+                <a href="products.html" class="product-cta"
+                  >Learn more
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" /></svg
+                ></a>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div class="product-img-wrap">
+                <img src="images/10.jpg" alt="Hedge Trimmer" />
+              </div>
+              <div class="product-body">
+                <div class="product-num">05</div>
+                <div class="product-name">Hedge Trimmer</div>
+                <div class="product-desc">
+                  Extended reach boom trimmer with multi-angle cutting head.
+                  Electric drive, remote joystick control and tracked base for
+                  slopes, verges and roadside work.
+                </div>
+                <div class="product-tags">
+                  <span class="tag">Extended Reach</span
+                  ><span class="tag">Multi-Angle</span
+                  ><span class="tag">Electric</span
+                  ><span class="tag">Remote Control</span>
+                </div>
+                <a href="products.html" class="product-cta"
+                  >Learn more
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" /></svg
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-controls">
+          <button class="carousel-btn" id="prevBtn">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="15 18 9 12 15 6" />
+            </svg>
+          </button>
+          <div class="carousel-dots" id="carouselDots"></div>
+          <button class="carousel-btn" id="nextBtn">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
+          </button>
         </div>
       </div>
-    </div>
-  </div>
-  <div class="footer-bottom">Copyright © PANDAG. All Rights Reserved.</div>
-</footer>
+    </section>
 
-<script>
-/* ── Hero Slideshow ── */
-const slides=document.querySelectorAll('.hero-slide');
-const dotsW=document.getElementById('heroDots');
-let cur=0,timer;
-slides.forEach((_,i)=>{const d=document.createElement('button');d.className='hero-dot'+(i===0?' active':'');d.onclick=()=>goTo(i);dotsW.appendChild(d);});
-function goTo(n){slides[cur].classList.remove('active');dotsW.children[cur].classList.remove('active');cur=(n+slides.length)%slides.length;slides[cur].classList.add('active');dotsW.children[cur].classList.add('active');resetTimer();}
-function resetTimer(){clearInterval(timer);timer=setInterval(()=>goTo(cur+1),3000);}
-document.getElementById('heroPrev').onclick=()=>goTo(cur-1);
-document.getElementById('heroNext').onclick=()=>goTo(cur+1);
-resetTimer();
+    <!-- ═══ SCENARIOS ═══ -->
+    <section id="scenarios">
+      <div class="fade-up">
+        <div class="section-tag">Applications</div>
+        <h2 class="section-h2">Designed for the<br /><em>Real World</em></h2>
+        <p class="section-desc">
+          PANDAG machinery performs across the widest range of environments —
+          from precision turf to rugged terrain and heavy site work.
+        </p>
+      </div>
+      <div class="scenarios-grid">
+        <div class="scenario-card fade-up">
+          <img class="scenario-photo" src="images/1.png" alt="Solar Farms" />
+          <div class="scenario-overlay"></div>
+          <div class="scenario-badge">Robotic Mower</div>
+          <div class="scenario-label">Solar Farms</div>
+          <div class="scenario-sub">Autonomous vegetation management</div>
+        </div>
+        <div class="scenario-card fade-up">
+          <img class="scenario-photo" src="images/2.png" alt="Steep Slopes" />
+          <div class="scenario-overlay"></div>
+          <div class="scenario-badge">Robotic Mower</div>
+          <div class="scenario-label">Steep Slopes</div>
+          <div class="scenario-sub">Up to 35° at 70% grade</div>
+        </div>
+        <div class="scenario-card fade-up">
+          <img class="scenario-photo" src="images/3.jpg" alt="Golf Courses" />
+          <div class="scenario-overlay"></div>
+          <div class="scenario-badge">Robotic Mower</div>
+          <div class="scenario-label">Golf Courses</div>
+          <div class="scenario-sub">Precision turf management</div>
+        </div>
+        <div class="scenario-card fade-up">
+          <img
+            class="scenario-photo"
+            src="images/4.png"
+            alt="Agricultural Land"
+          />
+          <div class="scenario-overlay"></div>
+          <div class="scenario-badge">Tracked Carrier · Hedge Trimmer</div>
+          <div class="scenario-label">Agricultural Land</div>
+          <div class="scenario-sub">Orchards, vineyards & pastures</div>
+        </div>
+        <div class="scenario-card fade-up">
+          <img
+            class="scenario-photo"
+            src="images/5.png"
+            alt="Forestry & Timber"
+          />
+          <div class="scenario-overlay"></div>
+          <div class="scenario-badge">Wood Chipper · Log Splitter</div>
+          <div class="scenario-label">Forestry & Timber</div>
+          <div class="scenario-sub">Chipping, splitting and processing</div>
+        </div>
+        <div class="scenario-card fade-up">
+          <img
+            class="scenario-photo"
+            src="images/6.png"
+            alt="Construction Sites"
+          />
+          <div class="scenario-overlay"></div>
+          <div class="scenario-badge">Hedge Trimmer · Tracked Carrier</div>
+          <div class="scenario-label">Construction Sites</div>
+          <div class="scenario-sub">Haulage and material handling</div>
+        </div>
+      </div>
+    </section>
 
-/* ── Feature Tabs ── */
-function switchTab(btn,id){
-  document.querySelectorAll('.feat-tab').forEach(b=>b.classList.remove('active'));
-  document.querySelectorAll('.feat-panel').forEach(p=>p.classList.remove('active'));
-  btn.classList.add('active');
-  document.getElementById(id).classList.add('active');
-}
+    <!-- ═══ CTA ═══ -->
+    <section id="cta">
+      <div class="fade-up">
+        <h2 class="cta-h2">
+          Find the Right Machine<br /><span>for Your Operation</span>
+        </h2>
+      </div>
+      <a href="contact.html" class="btn-white fade-up">Get a Quote Today</a>
+    </section>
 
-/* ── Product Carousel — max 4 dots ── */
-const track=document.getElementById('productTrack');
-const cards=track.querySelectorAll('.product-card');
-const dotsC=document.getElementById('carouselDots');
-let vis=window.innerWidth<1020?1:2,idx=0;
-const totalDots=4;
-for(let i=0;i<totalDots;i++){const d=document.createElement('button');d.className='carousel-dot'+(i===0?' active':'');d.onclick=()=>slideTo(i);dotsC.appendChild(d);}
-function slideTo(n){const max=cards.length-vis;idx=Math.max(0,Math.min(n,max));const w=cards[0].offsetWidth+20;track.style.transform=`translateX(-${idx*w}px)`;const dotIdx=Math.min(idx,totalDots-1);dotsC.querySelectorAll('.carousel-dot').forEach((d,i)=>d.classList.toggle('active',i===dotIdx));}
-document.getElementById('prevBtn').onclick=()=>slideTo(idx-1);
-document.getElementById('nextBtn').onclick=()=>slideTo(idx+1);
-window.addEventListener('resize',()=>{vis=window.innerWidth<1020?1:2;slideTo(0);});
+    <!-- ═══ FOOTER ═══ -->
+    <footer>
+      <div class="footer-nav-simple">
+        <div class="footer-nav-cols">
+          <div>
+            <div class="footer-nav-title">Products</div>
+            <div class="footer-nav-links">
+              <a href="products.html">Robotic Lawn Mower</a>
+              <a href="products.html">Wood Chipper</a>
+              <a href="products.html">Log Splitter</a>
+              <a href="products.html">Tracked Carrier</a>
+              <a href="products.html">Hedge Trimmer</a>
+            </div>
+          </div>
+          <div>
+            <div class="footer-nav-title">Company</div>
+            <div class="footer-nav-links">
+              <a href="about.html">About Us</a>
+              <a href="contact.html">Contact Us</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">Copyright © PANDAG. All Rights Reserved.</div>
+    </footer>
 
-/* ── Fade-in ── */
-const obs=new IntersectionObserver((entries)=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*80);obs.unobserve(e.target);}});},{threshold:.07});
-document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
-</script>
-</body>
+    <script>
+      /* ── Hero Slideshow ── */
+      const slides = document.querySelectorAll(".hero-slide");
+      const dotsW = document.getElementById("heroDots");
+      let cur = 0,
+        timer;
+      slides.forEach((_, i) => {
+        const d = document.createElement("button");
+        d.className = "hero-dot" + (i === 0 ? " active" : "");
+        d.onclick = () => goTo(i);
+        dotsW.appendChild(d);
+      });
+      function goTo(n) {
+        slides[cur].classList.remove("active");
+        dotsW.children[cur].classList.remove("active");
+        cur = (n + slides.length) % slides.length;
+        slides[cur].classList.add("active");
+        dotsW.children[cur].classList.add("active");
+        resetTimer();
+      }
+      function resetTimer() {
+        clearInterval(timer);
+        timer = setInterval(() => goTo(cur + 1), 3000);
+      }
+      document.getElementById("heroPrev").onclick = () => goTo(cur - 1);
+      document.getElementById("heroNext").onclick = () => goTo(cur + 1);
+      resetTimer();
+
+      /* ── Feature Tabs ── */
+      function switchTab(btn, id) {
+        document
+          .querySelectorAll(".feat-tab")
+          .forEach((b) => b.classList.remove("active"));
+        document
+          .querySelectorAll(".feat-panel")
+          .forEach((p) => p.classList.remove("active"));
+        btn.classList.add("active");
+        document.getElementById(id).classList.add("active");
+      }
+
+      /* ── Product Carousel — max 4 dots ── */
+      const track = document.getElementById("productTrack");
+      const cards = track.querySelectorAll(".product-card");
+      const dotsC = document.getElementById("carouselDots");
+      let vis = window.innerWidth < 1020 ? 1 : 2,
+        idx = 0;
+      const totalDots = 4;
+      for (let i = 0; i < totalDots; i++) {
+        const d = document.createElement("button");
+        d.className = "carousel-dot" + (i === 0 ? " active" : "");
+        d.onclick = () => slideTo(i);
+        dotsC.appendChild(d);
+      }
+      function slideTo(n) {
+        const max = cards.length - vis;
+        idx = Math.max(0, Math.min(n, max));
+        const w = cards[0].offsetWidth + 20;
+        track.style.transform = `translateX(-${idx * w}px)`;
+        const dotIdx = Math.min(idx, totalDots - 1);
+        dotsC
+          .querySelectorAll(".carousel-dot")
+          .forEach((d, i) => d.classList.toggle("active", i === dotIdx));
+      }
+      document.getElementById("prevBtn").onclick = () => slideTo(idx - 1);
+      document.getElementById("nextBtn").onclick = () => slideTo(idx + 1);
+      window.addEventListener("resize", () => {
+        vis = window.innerWidth < 1020 ? 1 : 2;
+        slideTo(0);
+      });
+
+      /* ── Fade-in ── */
+      const obs = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e, i) => {
+            if (e.isIntersecting) {
+              setTimeout(() => e.target.classList.add("visible"), i * 80);
+              obs.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.07 },
+      );
+      document.querySelectorAll(".fade-up").forEach((el) => obs.observe(el));
+    </script>
+  </body>
 </html>
